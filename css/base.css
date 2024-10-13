@@ -1,0 +1,56 @@
+/*  Colour Scheme  */
+:root[data-theme="light"] {
+  --text: #160803;
+  --background: #fdf5f2;
+  --primary: #f75e22;
+  --secondary: #ead27b;
+  --accent: #e6e15c;
+}
+:root[data-theme="dark"] {
+  --text: #fceee9;
+  --background: #0d0502;
+  --primary: #dd4508;
+  --secondary: #846c15;
+  --accent: #a39f19;
+}
+
+/*  Font  */
+@import url('https://fonts.googleapis.com/css?family=Inter:700|Inter:400');
+
+body {
+font-family: 'Inter', sans-serif;
+font-weight: 400;
+}
+
+h1, h2, h3, h4, h5 {
+font-family: 'Inter', sans-serif;
+font-weight: 700;
+}
+
+html {
+font-size: 100%; /* 16px */
+}
+
+h1 {
+font-size: 4.210rem; /* 67.36px */
+}
+
+h2 {
+font-size: 3.158rem; /* 50.56px */
+}
+
+h3 {
+font-size: 2.369rem; /* 37.92px */
+}
+
+h4 {
+font-size: 1.777rem; /* 28.48px */
+}
+
+h5 {
+font-size: 1.333rem; /* 21.28px */
+}
+
+small {
+font-size: 0.750rem; /* 12px */
+}

@@ -1,0 +1,83 @@
+/* General Layout and Grid Setup */
+#gridcontainer {
+    display: grid;
+    height: 100vh;
+
+    grid-template-areas:
+        "header header header header"
+        "nav nav nav nav"
+        "main main main main"
+        "foot foot foot foot";
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto 1fr auto;
+}
+
+/* Header and Logo Styles */
+#main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: var(--background);
+    flex-wrap: nowrap;
+}
+
+.logo img {
+    max-width: 150px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin-right: 20px;
+}
+
+/* Remove #flexnavbar to avoid conflicts with Bootstrap navbar */
+/* Image Banner Styles */
+#image-banner {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+#image-banner img {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text);
+    background-color: var(--background);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    #main-header {
+        padding: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .logo img {
+        max-width: 100px;
+        height: auto;
+    }
+}
+
+/* Image Banner Adjustments for Smaller Screens */
+@media screen and (max-width: 768px) {
+    #image-banner img {
+        height: auto;
+        max-height: 400px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #main-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
