@@ -141,60 +141,69 @@ footer {
 
 <!-- Accordion Section Spanning Across Entire Width Below -->
 <div class="row mt-4">
-    <div class="col-md-12">
-      <div class="accordion" id="accordionPanelsStayOpenExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
-              Grants / Scholarships
+  <div class="col-md-12">
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+
+      <!-- Accordion Item for Publications - Moved to First Position -->
+      <div class="accordion-item" id="publications-accordion">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">
+                Publications
             </button>
-          </h2>
-          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+        </h2>
+        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show">
             <div class="accordion-body">
-              <strong>This is the first item's accordion body.</strong> Content goes here.
+                <!-- Year 2024 -->
+                <span class="badge rounded-pill text-bg-success mb-2">2024</span>
+                <ul class="publication-list">
+                    <li><strong>Ali, T.</strong>, Rainey, J., Lau, S., Gheorghiu, E., Maier, P., Appiah, K., & Bhowmik, D. <em>An FPGA-based neuromorphic vision system accelerator.</em> SPIE Sensors + Imaging.</li>
+                    <li><strong>Ali, T.</strong>, Paul, G., Nicol, R., & Bhowmik, D. <em>Scheduling algorithms on heterogeneous architecture for efficient vision systems.</em> Proc. SPIE 13137, Applications of Digital Image Processing XLVII, 131370F. <a href="https://doi.org/10.1117/12.3031278" target="_blank">doi:10.1117/12.3031278</a></li>
+                    <li>Kumar, H., <strong>Ali, T.</strong>, Holder, C., McGough, S., & Bhowmik, D. <em>Remote Sensing Classification using Quantum Image Processing.</em> SPIE: Photonics for Quantum.</li>
+                    <li><strong>Ali, T.</strong>, et al. <em>Energy Aware CNN Deployment on Heterogeneous Architectures.</em> IEEE Trans. on Circuits and Systems for Video Technology. <strong>[Revisions In Progress]</strong></li>
+                </ul>
+    
+                <!-- Year 2023 -->
+                <span class="badge rounded-pill text-bg-success mb-2 mt-4">2023</span>
+                <ul class="publication-list">
+                    <li><strong>Ali, T.</strong>, Bhowmik, D., & Nicol, R. <em>Domain-Specific Optimisations for Image Processing on FPGAs.</em> J Sign Process Syst 95, 1167–1179. <a href="https://doi.org/10.1007/s11265-023-01888-2" target="_blank">doi:10.1007/s11265-023-01888-2</a></li>
+                    <li>Bane, M., Brown, O., <strong>Ali, T.</strong>, Bhowmik, D., Quinn, J., & Stansby, D. <em>ENERGETIC: Final Report v1.1.</em> <a href="https://doi.org/10.23634/MMU.00631226" target="_blank">doi:10.23634/MMU.00631226</a></li>
+                </ul>
             </div>
+        </div>
+    </div>
+
+    <!-- Accordion Item for Grants / Scholarships -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+            Grants / Scholarships
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <strong>This is the first item's accordion body.</strong> Content goes here.
           </div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-              Teaching
-            </button>
-          </h2>
-          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              <strong>This is the second item's accordion body.</strong> Content goes here.
-            </div>
-          </div>
-        </div>
-  
-        <!-- Accordion Item for Publications -->
-        <div class="accordion-item" id="publications-accordion">
-          <h2 class="accordion-header">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">
-                  Publications
-              </button>
-          </h2>
-          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show">
-              <div class="accordion-body">
-                  <!-- Year 2024 -->
-                  <span class="badge rounded-pill text-bg-success mb-2">2024</span>
-                  <ul class="publication-list">
-                      <li><strong>Ali, T.</strong>, Rainey, J., Lau, S., Gheorghiu, E., Maier, P., Appiah, K., & Bhowmik, D. <em>An FPGA-based neuromorphic vision system accelerator.</em> SPIE Sensors + Imaging.</li>
-                      <li><strong>Ali, T.</strong>, Paul, G., Nicol, R., & Bhowmik, D. <em>Scheduling algorithms on heterogeneous architecture for efficient vision systems.</em> Proc. SPIE 13137, Applications of Digital Image Processing XLVII, 131370F. <a href="https://doi.org/10.1117/12.3031278" target="_blank">doi:10.1117/12.3031278</a></li>
-                      <li>Kumar, H., <strong>Ali, T.</strong>, Holder, C., McGough, S., & Bhowmik, D. <em>Remote Sensing Classification using Quantum Image Processing.</em> SPIE: Photonics for Quantum.</li>
-                      <li><strong>Ali, T.</strong>, et al. <em>Energy Aware CNN Deployment on Heterogeneous Architectures.</em> IEEE Trans. on Circuits and Systems for Video Technology. <strong>[Revisions In Progress]</strong></li>
-                  </ul>
-      
-                  <!-- Year 2023 -->
-                  <span class="badge rounded-pill text-bg-success mb-2 mt-4">2023</span>
-                  <ul class="publication-list">
-                      <li><strong>Ali, T.</strong>, Bhowmik, D., & Nicol, R. <em>Domain-Specific Optimisations for Image Processing on FPGAs.</em> J Sign Process Syst 95, 1167–1179. <a href="https://doi.org/10.1007/s11265-023-01888-2" target="_blank">doi:10.1007/s11265-023-01888-2</a></li>
-                      <li>Bane, M., Brown, O., <strong>Ali, T.</strong>, Bhowmik, D., Quinn, J., & Stansby, D. <em>ENERGETIC: Final Report v1.1.</em> <a href="https://doi.org/10.23634/MMU.00631226" target="_blank">doi:10.23634/MMU.00631226</a></li>
-                  </ul>
-              </div>
-          </div>
       </div>
+
+    <!-- Accordion Item for Teaching -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+            Teaching
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <strong>This is the second item's accordion body.</strong> Content goes here.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
       
           
 
