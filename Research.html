@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://kit.fontawesome.com/3d008ae3fc.js" crossorigin="anonymous"></script>
+    <!-- Font Import -->
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/css_reset.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <title>Research</title>
+
+    <style>
+        /* Ensure the body and html take up the full height of the viewport */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Main content should take up the remaining space */
+        .content-wrapper {
+            flex: 1; /* Makes content-wrapper grow to fill available space */
+        }
+
+        /* Footer styling to stretch across the bottom */
+        footer {
+            background-color: rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+        }
+
+        /* Ensure footer stays at the bottom */
+        .footer-container {
+            background-color: #f8f9fa;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Styling for the research cards */
+        .card {
+            height: 100%; /* Ensures all cards are full height */
+            display: flex;
+            flex-direction: column; /* Makes card content stack vertically */
+        }
+
+        .card-img-top {
+            height: 200px; /* Fixes the image height */
+            object-fit: cover; /* Ensures the image fits the given height */
+        }
+
+        .card-body {
+            flex-grow: 1; /* Ensures the body stretches to fill the remaining space */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-text {
+            flex-grow: 1; /* Makes the text area grow to fill the card */
+        }
+
+        .btn {
+            align-self: flex-start; /* Keeps the button aligned to the bottom */
+        }
+
+        /* Carousel */
+        .carousel-item {
+            display: flex;
+        }
+
+        .carousel-item .col-md-4 {
+            flex: 1 0 33.33%; /* Ensures each card takes up 1/3 of the row */
+            max-width: 33.33%; /* Sets the max-width to 1/3 */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Dark Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <img src="images/colours.png" width="30" height="30" alt="Logo">
+
+    <!-- Navbar Toggler (Hamburger icon for mobile) -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links (collapsible in mobile) -->
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <!-- Left side: Links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cv.html">CV</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Blog.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="research.html">Research</a>
+        </li>
+      </ul>
+
+      <!-- Right side: Social Media Icons -->
+      <ul class="navbar-nav ms-auto">
+        <!-- GitHub Icon -->
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/teymoor-ali" target="_blank"><i class="fab fa-github" style="color: white;"></i></a>
+        </li>
+        <!-- Google Scholar Icon -->
+        <li class="nav-item">
+          <a class="nav-link" href="https://scholar.google.com/citations?user=Pa7Mhl4AAAAJ&hl" target="_blank"><i class="fa-brands fa-google-scholar" style="color: white;"></i></a>
+        </li>
+        <!-- LinkedIn Icon -->
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.linkedin.com/in/teymoor-ali/" target="_blank"><i class="fab fa-linkedin" style="color: white;"></i></a>
+        </li>
+        <!-- Mail Icon -->
+        <li class="nav-item">
+          <a class="nav-link" href="mailto:Teymoor.A@Outlook.com"><i class="fas fa-envelope" style="color: white;"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content Wrapper -->
+<div class="content-wrapper container mt-5">
+  <h1 class="text-center mb-4">Current Research</h1>
+  
+  <!-- Carousel with Research Cards -->
+  <div id="researchCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <!-- First Carousel Item -->
+      <div class="carousel-item active">
+        <div class="row justify-content-center">
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <img src="images/IMG_20221018_144042.jpg" class="card-img-top" alt="Research 1">
+              <div class="card-body">
+                <h5 class="card-title">Heterogeneous Computing</h5>
+                <p class="card-text">This research focuses on combining CPU-GPU-FPGA into a single fabric for higher performance and lower energy consumption.</p>
+                <a href="research1.html" class="btn btn-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <img src="images/SNN.jpg" class="card-img-top" alt="Research 2">
+              <div class="card-body">
+                <h5 class="card-title">Spiking Neural Networks</h5>
+                <p class="card-text">Exploring spiking neural networks for energy-efficient computing in vision systems.</p>
+                <a href="research2.html" class="btn btn-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card" aria-hidden="true">
+              <div class="card-img-top" style="height: 200px; background-color: #989a9c;"></div>
+              <div class="card-body">
+                <h5 class="card-title placeholder-glow">
+                  <span class="placeholder col-6"></span>
+                </h5>
+                <p class="card-text placeholder-wave">
+                  <span class="placeholder col-7"></span>
+                  <span class="placeholder col-4"></span>
+                  <span class="placeholder col-4"></span>
+                  <span class="placeholder col-6"></span>
+                  <span class="placeholder col-8"></span>
+                </p>
+                <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+    </div>
+
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#researchCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#researchCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-container mt-5">
+  <div class="text-center p-3">
+    © 2024 All Rights Reserved
+  </div>
+</footer>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -53,6 +53,30 @@ footer {
     background-color: var(--background);
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrapper {
+    flex: 1;  /* This allows the content to grow and pushes the footer to the bottom */
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-shrink: 0;  /* Ensures the footer stays at the bottom */
+}
+
+
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
     #main-header {
@@ -80,4 +104,66 @@ footer {
         flex-direction: column;
         align-items: flex-start;
     }
+}
+/* Ensure all navbar links have position relative to position the ::before element */
+.navbar-nav .nav-link {
+    position: relative;
+    color: white; /* Ensure the link color is white */
+}
+
+/* Add the ::before pseudo-element for the underline effect */
+.navbar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px; /* Position the line below the text */
+    left: 0;
+    background-color: white; /* Color of the underline */
+    visibility: hidden;
+    transition: all 0.3s ease-in-out; /* Animation effect */
+}
+
+/* On hover, make the line visible and animate the width */
+.navbar-nav .nav-link:hover::before,
+.navbar-nav .nav-link:focus::before {
+    visibility: visible;
+    width: 100%;
+
+    .card {
+        height: 100%; /* Ensures all cards are full height */
+        display: flex;
+        flex-direction: column; /* Makes card content stack vertically */
+    }
+    
+    .card-img-top {
+        height: 200px; /* Fixes the image height */
+        object-fit: cover; /* Ensures the image fits the given height */
+    }
+    
+    .card-body {
+        flex-grow: 1; /* Ensures the body stretches to fill the remaining space */
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .card-text {
+        flex-grow: 1; /* Makes the text area grow to fill the card */
+    }
+    
+    .btn {
+        align-self: flex-start; /* Keeps the button aligned to the bottom */
+    }
+}
+
+.card-img-top {
+    width: 100%; /* Ensures the image takes up the full width of the card */
+    height: 200px; /* Fixes the height of the image */
+    object-fit: contain; /* Scales the image to fit within the bounds, preserving aspect ratio */
+}
+
+/* Limit the height of the accordion for publications and make it scrollable */
+#panelsStayOpen-collapseThree .accordion-body {
+    max-height: 300px; /* Adjust this height as per your design */
+    overflow-y: auto;  /* Enable vertical scroll */
 }

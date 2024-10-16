@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://kit.fontawesome.com/3d008ae3fc.js" crossorigin="anonymous"></script>
@@ -38,11 +38,21 @@
             text-align: center;
             width: 100%;
             padding: 10px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
         }
 
         /* Ensure footer stays at the bottom */
         .footer-container {
             background-color: #f8f9fa;
+        }
+
+        /* Limit the height of the accordion for publications and make it scrollable */
+        #panelsStayOpen-collapseThree .accordion-body {
+            max-height: 300px; /* Adjust this height as per your design */
+            overflow-y: auto;  /* Enable vertical scroll */
         }
     </style>
 </head>
@@ -72,8 +82,11 @@
             <a class="nav-link" href="#publications-accordion">Publications</a>
           </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="Blog.html">Blog</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="research.html">Research</a>
+        </li>        
 
       </ul>
 
@@ -101,11 +114,6 @@
   </div>
 </nav>
 
-<!-- Under Construction Alert -->
-<div class="alert alert-danger text-center" role="alert">
-  Under Construction
-</div>
-
 <!-- Main Content Wrapper -->
 <div class="content-wrapper container">
   <div class="row">
@@ -119,7 +127,6 @@
 <!-- Column 2 and 3: Jumbotron Spanning Two Columns -->
 <div class="col-md-8 d-flex align-items-center">
   <div class="jumbotron">
-    <!-- <h1 class="display-4">Hello, world!</h1> -->
     <p class="lead">I am a Research Associate in the Department of Electronic & Electrical Engineering at the University of Strathclyde, with a PhD in Computing Science from the University of Stirling and a Master of Engineering in Software Engineering from Heriot-Watt University. My research focuses on image processing, computer vision, and edge AI, particularly for industrial and scientific applications. I have experience developing domain-specific optimisations of image processing algorithms on novel heterogeneous architectures.</p>
     
     <p class="lead" style="margin-top: 20px;">My expertise spans areas like computer vision (object detection, classification), spiking neural networks, hyperspectral imaging, and hardware performance optimisation, with a keen interest in exploring the balance between computational efficiency, energy consumption, and algorithmic performance.</p>
@@ -137,7 +144,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
-              Accordion Item #1
+              Grants / Scholarships
             </button>
           </h2>
           <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
@@ -149,7 +156,7 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-              Accordion Item #2
+              Teaching
             </button>
           </h2>
           <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
@@ -161,40 +168,38 @@
   
         <!-- Accordion Item for Publications -->
         <div class="accordion-item" id="publications-accordion">
-            <h2 class="accordion-header">
+          <h2 class="accordion-header">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">
-                Publications
+                  Publications
               </button>
-            </h2>
-            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show">
+          </h2>
+          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show">
               <div class="accordion-body">
-                <!-- Year 2024 -->
-                <h3 style="text-decoration: underline; font-weight: bold; margin-top: 20px;">2024</h3>
-                <ul class="publication-list">
-                  <li><strong>Ali, T.</strong>, Rainey, J., Lau, S., Gheorghiu, E., Maier, P., Appiah, K., & Bhowmik, D. <em>An FPGA-based neuromorphic vision system accelerator.</em> SPIE Sensors + Imaging.</li>
-                  <li><strong>Ali, T.</strong>, Paul, G., Nicol, R., & Bhowmik, D. <em>Scheduling algorithms on heterogeneous architecture for efficient vision systems.</em> Proc. SPIE 13137, Applications of Digital Image Processing XLVII, 131370F. <a href="https://doi.org/10.1117/12.3031278" target="_blank">doi:10.1117/12.3031278</a></li>
-                  <li>Kumar, H., <strong>Ali, T.</strong>, Holder, C., McGough, S., & Bhowmik, D. <em>Remote Sensing Classification using Quantum Image Processing.</em> SPIE: Photonics for Quantum.</li>
-                  <li><strong>Ali, T.</strong>, et al. <em>Energy Aware CNN Deployment on Heterogeneous Architectures.</em> IEEE Trans. on Circuits and Systems for Video Technology. <strong>[Revisions In Progress]</strong></li>
-                </ul>
-          
-                <!-- Year 2023 -->
-                <h3 style="text-decoration: underline; font-weight: bold; margin-top: 20px;">2023</h3>
-                <ul class="publication-list">
-                  <li><strong>Ali, T.</strong>, Bhowmik, D., & Nicol, R. <em>Domain-Specific Optimisations for Image Processing on FPGAs.</em> J Sign Process Syst 95, 1167–1179. <a href="https://doi.org/10.1007/s11265-023-01888-2" target="_blank">doi:10.1007/s11265-023-01888-2</a></li>
-                  <li>Bane, M., Brown, O., <strong>Ali, T.</strong>, Bhowmik, D., Quinn, J., & Stansby, D. <em>ENERGETIC: Final Report v1.1.</em> <a href="https://doi.org/10.23634/MMU.00631226" target="_blank">doi:10.23634/MMU.00631226</a></li>
-                </ul>
+                  <!-- Year 2024 -->
+                  <span class="badge rounded-pill text-bg-success mb-2">2024</span>
+                  <ul class="publication-list">
+                      <li><strong>Ali, T.</strong>, Rainey, J., Lau, S., Gheorghiu, E., Maier, P., Appiah, K., & Bhowmik, D. <em>An FPGA-based neuromorphic vision system accelerator.</em> SPIE Sensors + Imaging.</li>
+                      <li><strong>Ali, T.</strong>, Paul, G., Nicol, R., & Bhowmik, D. <em>Scheduling algorithms on heterogeneous architecture for efficient vision systems.</em> Proc. SPIE 13137, Applications of Digital Image Processing XLVII, 131370F. <a href="https://doi.org/10.1117/12.3031278" target="_blank">doi:10.1117/12.3031278</a></li>
+                      <li>Kumar, H., <strong>Ali, T.</strong>, Holder, C., McGough, S., & Bhowmik, D. <em>Remote Sensing Classification using Quantum Image Processing.</em> SPIE: Photonics for Quantum.</li>
+                      <li><strong>Ali, T.</strong>, et al. <em>Energy Aware CNN Deployment on Heterogeneous Architectures.</em> IEEE Trans. on Circuits and Systems for Video Technology. <strong>[Revisions In Progress]</strong></li>
+                  </ul>
+      
+                  <!-- Year 2023 -->
+                  <span class="badge rounded-pill text-bg-success mb-2 mt-4">2023</span>
+                  <ul class="publication-list">
+                      <li><strong>Ali, T.</strong>, Bhowmik, D., & Nicol, R. <em>Domain-Specific Optimisations for Image Processing on FPGAs.</em> J Sign Process Syst 95, 1167–1179. <a href="https://doi.org/10.1007/s11265-023-01888-2" target="_blank">doi:10.1007/s11265-023-01888-2</a></li>
+                      <li>Bane, M., Brown, O., <strong>Ali, T.</strong>, Bhowmik, D., Quinn, J., & Stansby, D. <em>ENERGETIC: Final Report v1.1.</em> <a href="https://doi.org/10.23634/MMU.00631226" target="_blank">doi:10.23634/MMU.00631226</a></li>
+                  </ul>
               </div>
-            </div>
           </div>
+      </div>
+      
           
-          
-
 
 <!-- Footer -->
 <footer class="footer-container">
   <div class="text-center p-3">
-    © 2024 All Rights Reserved
-    <a class="text-dark"></a>
+    © 2024 Teymoor Ali. All Rights Reserved
   </div>
 </footer>
 
