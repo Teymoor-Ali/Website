@@ -19,30 +19,32 @@
     <title>Teymoor Ali</title>
     <link rel="icon" type="image/x-icon" href="images/colours.png">
     <style>
-        /* Ensure the body and html take up the full height of the viewport */
-        html, body {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-        }
+/* Ensure the body and html take up the full height of the viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
 
-        /* Main content should take up the remaining space */
-        .content-wrapper {
-            flex: 1; /* Makes content-wrapper grow to fill available space */
-        }
+/* Main content should take up the remaining space */
+.content-wrapper {
+    flex: 1;
+    padding-bottom: 60px; /* Add enough bottom padding to prevent overlap with footer */
+}
 
-        /* Footer styling to stretch across the bottom */
-        footer {
-            background-color: rgba(0, 0, 0, 0.2);
-            text-align: center;
-            width: 100%;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
+/* Footer styling to keep it fixed at the bottom */
+footer {
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    position: fixed; /* Keeps the footer fixed at the bottom of the viewport */
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 
         /* Ensure footer stays at the bottom */
         .footer-container {
