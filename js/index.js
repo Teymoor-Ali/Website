@@ -1,37 +1,38 @@
-// script.js
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleButton = document.getElementById("theme-toggle");
+  const icon = toggleButton.querySelector("i");
+  const body = document.body;
 
-// Startup Code
-console.log("JavaScript loaded"); // Test code to ensure the JavaScript file is loaded
-
-// Wait for the DOM to fully load
-document.addEventListener('DOMContentLoaded', function () {
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('#flexnavbar');
-
-  // Check if the elements exist
-  if (hamburger && navMenu) {
-    // Toggle the navigation menu when hamburger is clicked
-    hamburger.addEventListener('click', function (event) {
-      event.stopPropagation(); // Prevent the click event from bubbling up
-      navMenu.classList.toggle('show');
-
-      // Update aria-expanded attribute for accessibility
-      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-      hamburger.setAttribute('aria-expanded', !expanded);
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', function (event) {
-      const isClickInside =
-        navMenu.contains(event.target) || hamburger.contains(event.target);
-
-      if (!isClickInside && navMenu.classList.contains('show')) {
-        navMenu.classList.remove('show');
-        hamburger.setAttribute('aria-expanded', 'false');
+  // Function to safely get and set localStorage
+  function safeLocalStorage(action, key, value) {
+      try {
+          if (action === "get") {
+              return localStorage.getItem(key);
+          } else if (action === "set") {
+              localStorage.setItem(key, value);
+          }
+      } catch (e) {
+          console.warn("LocalStorage is not supported, theme preference will not persist.");
+          return null;
       }
-    });
-  } else {
-    console.error('Hamburger menu or navigation menu not found in the DOM.');
   }
-});
 
+  // Check for theme preference in localStorage
+  const currentTheme = safeLocalStorage("get", "theme");
+  if (currentTheme === "light") {
+      body.classList.add("light-theme");
+      icon.classList.replace("fa-sun", "fa-moon");
+  }
+
+  // Toggle the theme when the button is clicked
+  toggleButton.addEventListener("click", function () {
+      body.classList.toggle("light-theme");
+      if (body.classList.contains("light-theme")) {
+          icon.classList.replace("fa-sun", "fa-moon");
+          safeLocalStorage("set", "theme", "light"); // Save the theme preference
+      } else {
+          icon.classList.replace("fa-moon", "fa-sun");
+          safeLocalStorage("set", "theme", "dark"); // Save the theme preference
+      }
+  });
+});
