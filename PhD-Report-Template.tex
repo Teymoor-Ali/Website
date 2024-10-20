@@ -1,0 +1,55 @@
+\documentclass[12pt,a4paper]{report}
+\input{tex/header}
+\onehalfspacing
+%-----------------------------------------------------------
+\graphicspath{{images/}}
+%-----------------------------------------------------------
+\begin{document} 
+\input{tex/title-page}
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\input{tex/abstract}
+\input{tex/attestation}
+\input{tex/acknowledgement}
+\begingroup
+	\onehalfspacing
+	\hypersetup{linkcolor=black}
+	\tableofcontents
+	\listoffigures
+\endgroup
+\input{tex/Symbols}
+\input{tex/Contribution}
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+
+%% Chapters
+\input{tex/introduction}
+\input{tex/background}
+\input{tex/sota}
+\input{tex/Chap0_implementation}
+\input{tex/Chap1_heterogenousframework}
+\input{tex/Chap2_domainspecificoptimisations}
+\input{tex/Chap3_heterogenousCNN}
+\input{tex/conclusion}
+
+
+
+
+% --------- Reference section -------------
+
+\bibliographystyle{IEEEtran}
+\bibliography{reference}
+
+
+%----------- APPENDIX ---------------------
+%\input{tex/Appendice}
+
+
+\end{document}
+%% That's all. End of the LaTex document. %%

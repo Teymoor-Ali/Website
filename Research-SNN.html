@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spiking Neural Networks Research - Teymoor Ali</title>
+    <link rel="icon" type="image/x-icon" href="images/colours.png">
+
+    <!-- Bootstrap CSS (Bootstrap 5.3) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Font Import -->
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/css_reset.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+
+    <style>
+        /* Ensure the body and html take up the full height of the viewport */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            padding-bottom: 60px;
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.1);
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .footer-container {
+            background-color: #212529;
+        }
+
+        /* Blog post title styling */
+        .blog-post-title {
+            margin-bottom: 0.25rem;
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            color: #fff;
+        }
+
+        /* Meta information styling */
+        .blog-post-meta {
+            color: #adb5bd;
+            margin-bottom: 1.25rem;
+        }
+
+        /* General content styling */
+        .blog-section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-section p {
+            font-size: 1.1rem;
+            line-height: 1.75;
+            color: #fff;
+        }
+
+        /* Links */
+        a {
+            color: #0d6efd;
+        }
+
+        a:hover {
+            color: #0a58ca;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+
+        /* Callout Box */
+        .callout {
+            padding: 20px;
+            background-color: #343a40;
+            border-left: 5px solid #0d6efd;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body data-bs-theme="dark">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <img src="images/colours.png" width="30" height="30" alt="Logo">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="research.html">Research</a>
+        </li>
+      </ul>
+
+      <!-- Social Media Icons -->
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/teymoor-ali" target="_blank"><i class="fab fa-github" style="color: white;"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://scholar.google.com/citations?user=Pa7Mhl4AAAAJ&hl" target="_blank"><i class="fa-brands fa-google-scholar" style="color: white;"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.linkedin.com/in/teymoor-ali/" target="_blank"><i class="fab fa-linkedin" style="color: white;"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mailto:Teymoor.A@Outlook.com"><i class="fas fa-envelope" style="color: white;"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content Wrapper -->
+<div class="content-wrapper container mt-5">
+  <h1 class="blog-post-title">Spiking Neural Networks: Optimizing Energy Efficiency in Vision Systems</h1>
+  <p class="blog-post-meta">Published on October 16, 2024 by <a href="#">Teymoor Ali</a></p>
+
+  <div class="blog-content">
+
+    <!-- Introduction Section -->
+    <div class="blog-section">
+      <h2>Introduction</h2>
+      <p>
+        Spiking Neural Networks (SNNs) represent a major shift from traditional artificial neural networks, offering energy-efficient computing for real-time applications. Their event-based processing mimics biological neurons, making them highly suitable for resource-constrained environments such as robotics and vision systems.
+      </p>
+    </div>
+
+    <!-- Key Focus Section -->
+    <div class="callout">
+      <strong>Key Focus:</strong> This research aims to enhance computational efficiency in vision systems using SNNs, while significantly reducing energy consumption.
+    </div>
+
+    <!-- SNN in Vision Systems Section -->
+    <div class="blog-section">
+      <h2>SNN in Vision Systems</h2>
+      <p>
+        SNNs process data in spikes, as opposed to traditional continuous activations. This event-driven mechanism only activates neurons when a specific threshold is reached, conserving energy. In vision systems, this is particularly useful, as the workload can be distributed based on the importance of visual inputs.
+      </p>
+      <p>
+        The challenge lies in efficiently training SNNs to perform well under low-latency conditions. Traditional backpropagation methods used in ANNs need to be adapted to handle spike-based learning. Novel techniques like spike-timing-dependent plasticity (STDP) are being explored to enable SNNs to learn more naturally.
+      </p>
+    </div>
+
+    <!-- Future Work Section -->
+    <div class="blog-section">
+      <h2>Future Work</h2>
+      <p>
+        Future directions include integrating SNNs with edge AI systems, allowing real-time decision-making in applications such as autonomous vehicles and drones. Further exploration will involve training techniques that can balance energy efficiency with performance improvements in large-scale deployments.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-container mt-5">
+  <div class="text-center p-3">
+    © 2024 Teymoor Ali. All Rights Reserved
+  </div>
+</footer>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

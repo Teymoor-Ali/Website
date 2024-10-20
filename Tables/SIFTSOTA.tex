@@ -1,0 +1,20 @@
+\begin{table}[!h]
+\caption{SIFT: Performance against state-of-the-art}
+\label{tab:state_of_art}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lclrrr}
+\toprule
+ &
+  \begin{tabular}[c]{@{}c@{}}Octave,\\ Scale\end{tabular} &
+  Hardware Platform &
+  Image Size &
+  \begin{tabular}[c]{@{}c@{}}Clock\\ (Mhz)\end{tabular} &
+  \begin{tabular}[c]{@{}r@{}}Frame Rate\\ (FPS)\end{tabular} \\ \midrule
+Chiu~\cite{ChiTiaJiu13}     & 2,4 & Virtex-6           & $640\times480$     & 100 & 30  \\
+Mizuno~\cite{MizKosNog11}   & 2,4 & 65 nm CMOS         & $1920\times1080$   & N/A  & 30  \\
+Vourvoulakis~\cite{VourKalLy16}  & 1,4          & Cyclone IV        & $640\times480$  & 21.7   & 70  \\ \midrule
+Proposed & 2,4 & Zynq UltraScale+   & $1920\times1080$ & 300 & 50  \\
+ & 2,4 & Virtex UltraScale+ & $1920\times1080$ & 600 & \textbf{100}  \\ \bottomrule
+\end{tabular}%
+}
+\end{table}

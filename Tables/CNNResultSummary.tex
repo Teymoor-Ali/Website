@@ -1,0 +1,32 @@
+\begin{table}[H]
+\centering
+\setlength{\extrarowheight}{0pt}
+\addtolength{\extrarowheight}{\aboverulesep}
+\addtolength{\extrarowheight}{\belowrulesep}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\caption{CNN Optimisation Result Summary: Runtimes and Image Classification Accuracy for Baseline and Optimisations Applied on each Hardware.}
+\label{tab:CNNSummaryTable}
+\arrayrulecolor{black}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c} 
+\toprule
+\rowcolor[rgb]{0.753,0.753,0.753} {\cellcolor[rgb]{0.753,0.753,0.753}} & \multicolumn{3}{c|}{{\cellcolor[rgb]{0.753,0.753,0.753}}} & \multicolumn{6}{c}{\textbf{Optimisations}} \\ 
+\hhline{>{\arrayrulecolor[rgb]{0.753,0.753,0.753}}->{\arrayrulecolor{black}}|>{\arrayrulecolor[rgb]{0.753,0.753,0.753}}--->{\arrayrulecolor{black}}|---|---}
+\rowcolor[rgb]{0.753,0.753,0.753} {\cellcolor[rgb]{0.753,0.753,0.753}} & \multicolumn{3}{c|}{\multirow{-2}{*}{{\cellcolor[rgb]{0.753,0.753,0.753}}\begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Baseline}\\\textbf{ Runtime (s)}\end{tabular}}} & \multicolumn{3}{c|}{\textbf{Datatype (INT8)}} & \multicolumn{3}{c}{\textbf{Downsampling}} \\ 
+\hhline{>{\arrayrulecolor[rgb]{0.753,0.753,0.753}}->{\arrayrulecolor{black}}|-|-|-|-|-|-|-|-|-}
+\rowcolor[rgb]{0.753,0.753,0.753} \multirow{-3}{*}{{\cellcolor[rgb]{0.753,0.753,0.753}}\textbf{Algorithm}} & \textbf{CPU} & \textbf{GPU} & \textbf{FPGA} & \textbf{CPU} & \textbf{GPU} & \textbf{FPGA} & \textbf{CPU} & \textbf{GPU} & \textbf{FPGA} \\ 
+\midrule
+MobileNetV2 & 0.25 & 0.18 & 0.19 & 0.21 & 0.16 & \textbf{\uline{0.15}} & 0.23 & 0.17 & 0.18 \\ 
+\midrule
+ResNet50 & 0.33 & 0.22 & 0.25 & 0.25 & 0.18 & \textbf{ \uline{0.16}} & 0.28 & 0.20 & 0.19 \\ 
+\midrule
+\multicolumn{10}{c}{{\cellcolor[rgb]{0.753,0.753,0.753}}\textbf{Energy Consumption (Joules)}} \\ 
+\hline
+MobileNetV2 & 22.5 & 7.20 & 6.50 & 16.8 & 6.30 & 5.25 & 19.55 & 6.40 & 6.1 \\ 
+\hline
+ResNet50 & 29.7 & 9.4 & 8.75 & 21.25 & 8.1 & 5.6 & 23.8 & 8.4 & 6.65 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

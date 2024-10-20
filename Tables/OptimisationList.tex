@@ -1,0 +1,31 @@
+\begin{table}
+\centering
+\setlength{\extrarowheight}{0pt}
+\addtolength{\extrarowheight}{\aboverulesep}
+\addtolength{\extrarowheight}{\belowrulesep}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\caption{Summary of Hardware Optimisation Techniques}
+\label{tab:hardware_optimisations}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|l} 
+\toprule
+\rowcolor[rgb]{0.753,0.753,0.753} \textbf{Optimisation Technique} & \multicolumn{1}{c}{\textbf{Description}}                                                                          \\ 
+\midrule
+Pipelining                                                        & Concurrent processing of tasks in stages within a pipeline.                                                       \\ 
+\midrule
+Vectorisation                                                     & Performing operations on entire vectors of data in a single instruction.                                          \\ 
+\midrule
+Cache Optimisation                                                & Enhancing data locality and minimising cache misses for improved memory access.                                   \\ 
+\midrule
+Line Buffer                                                       & Storing and processing a line of data at a time; optimising access patterns and reducing memory bandwidth usage.  \\ 
+\midrule
+Look-Up Table                                                     & Using precomputed values stored in a table for quick retrieval; enhancing computational efficiency.               \\ 
+\midrule
+\begin{tabular}[c]{@{}c@{}}Memory \\Architecture\end{tabular}     & Optimising the design and organisation of memory systems for efficient data access.                               \\ 
+\midrule
+\begin{tabular}[c]{@{}c@{}}Approximate \\Computing\end{tabular}   & Allowing imprecise calculations without prioritising accuracy.                                                    \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

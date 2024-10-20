@@ -1,0 +1,41 @@
+\chapter{Results and Discussions}
+
+This may not be a separate chapter if you have results and discussions 
+associated with each chapter.  
+
+\section{Dataset (optional)}
+Description of the dataset(s) if you have used any.
+
+\section{Experimental setup}
+Say what is the experimental set up, parameters that were used. 
+
+\section{Results}
+Stand back and evaluate what you have achieved and how well you have met the 
+objectives. Evaluate your achievements against your objectives in 
+\Sec{objectives}. Demonstrate that you have tackled the project in a 
+professional manner. 
+
+The previous paragraph demonstrates the use of automatic cross-references:  The 
+``1.2'' is a \textit{cross-reference} to the text in a numbered item of the 
+document; you do not type it as \texttt{1.2} but by using the \cmd{Sec} 
+command. The number that appears here will change automatically if the number 
+on the referred-to section is altered, for example, if a chapter or section is 
+added or deleted before it. Cross-references to section are entered with the 
+\cmd{ref} command just like for figures. The \TeX{} code above reads
+\begin{quote}\tt
+	Evaluate your achievements against your objectives \\[-0.5em]
+	in section \textbackslash{}ref\{objectives sec\}.
+\end{quote}
+For this to work, the code for the text on page \pageref{objectives sec} must 
+read
+\begin{quote}\tt
+	\textbackslash{}section\{Scope and Objectives\} 
+	\textbackslash{}label\{objectives sec\}
+\end{quote}
+As with figure labels, the text inside of \cmd{label} and \cmd{Fig} never 
+appears in the final pdf; you can make it whatever you want as long as you use 
+the same text in each to complete the reference.
+
+\section{Discussions}
+Analyse your results and discuss it by including your insight. For example why 
+the results are behaving like this, why there is an outlier etc.

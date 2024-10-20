@@ -1,0 +1,43 @@
+\begin{table}[t]
+\centering
+\setlength{\extrarowheight}{0pt}
+\addtolength{\extrarowheight}{\aboverulesep}
+\addtolength{\extrarowheight}{\belowrulesep}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\caption{Energy and Runtime Speedup of CPU-GPU-FPGA heterogeneous architecture implementations compared to single GPU. The Table only includes works where algorithms are partitioned and processed on all accelerators.}
+\label{CPUGPUFPGA}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|c|c|c|c|c|c} 
+\toprule
+\rowcolor[rgb]{0.753,0.753,0.753} \textbf{Work} & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Heterogeneous}\\\textbf{ Platform}\end{tabular}} & \begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Partitioning}\\\textbf{ Strategy}\end{tabular} & \textbf{Algorithms} & \begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Energy }\\\textbf{ Gain}\end{tabular} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Runtime}\\\textbf{ Speedup}\end{tabular}} \\ 
+\midrule
+\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Hyungmin C,\\ etal \cite{ChoLeeLee22}\end{tabular}} & GPU+CPU & ARM+P100 & \multirow{2}{*}{Element-wise} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Long \\ Short-term\\ Memory\end{tabular}} & \multirow{2}{*}{$\sim$0.34x} & \multirow{2}{*}{$\sim$4.2x} \\ 
+\cline{2-3}
+ & FPGA & \begin{tabular}[c]{@{}c@{}}Zync\\ Ultrascale\end{tabular} &  &  &  &  \\ 
+\midrule
+\multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Hosseinabady M, \\ etal \cite{Hosseinabady2019HeterogeneousFE}\end{tabular}} & GPU+CPU & ARM+Jetson TX1 & \multirow{3}{*}{Element-wise} & Histogram & $\sim$2.29x & $\sim$1.79x \\ 
+\cline{2-3}\cline{5-7}
+ & \multirow{2}{*}{FPGA} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Virtex-7\\ Zync\\ Ultrascale\end{tabular}} &  & \begin{tabular}[c]{@{}c@{}}Dense Matrix-Vector\\ Multiplication\end{tabular} & $\sim$1.19x & $\sim$1.48x \\ 
+\cline{5-7}
+ &  &  &  & \begin{tabular}[c]{@{}c@{}}Sparse Matrix-Vector\\ Multiplication\end{tabular} & $\sim$1.23x & $\sim$1.25x \\ 
+\midrule
+\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Yuexuan T,\\ etal \cite{TuSad19}\end{tabular}} & GPU+CPU & ARM+Jetson TX2 & \multirow{2}{*}{Hybrid} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}LeNet-5\\ N=16\end{tabular}} & \multirow{2}{*}{$\sim$2.11x} & \multirow{2}{*}{$\sim$1.3x} \\ 
+\cline{2-3}
+ & FPGA & Nexys Artix-7 &  &  &  &  \\ 
+\midrule
+\multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Carballo-Hernandez,\\ etal \cite{CarballoHernandez2021WhyIF}\end{tabular}} & GPU+CPU & ARM+Jetson TX2 & \multirow{3}{*}{Layer-Wise} & SqueezeNet Fire & $\sim$1.34x & $\sim$1.01x \\ 
+\cline{2-3}\cline{5-7}
+ & \multirow{2}{*}{FPGA} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Cyclone-10 \\ GX\end{tabular}} &  & MobileNet V2 Bottleneck & $\sim$1.55x & $\sim$1.26x \\ 
+\cline{5-7}
+ &  &  &  & Shufflenet V2 Stage & $\sim$1.39x & $\sim$1.35x \\ 
+\midrule
+\multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Sumeet N,\\ etal \cite{SumRaw22}\end{tabular}} & GPU+CPU & ARM+A100 & \multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Grouped \\Layer-Wise\end{tabular}} & ResNet-18 & $\sim$1.14x & \multirow{3}{*}{-} \\ 
+\cline{2-3}\cline{5-6}
+ & \multirow{2}{*}{FPGA} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Xilinx Alveo\\ U280\end{tabular}} &  & ResNet-50 & $\sim$1.08x &  \\ 
+\cline{5-6}
+ &  &  &  & VGG16-bn & $\sim$1.12x &  \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

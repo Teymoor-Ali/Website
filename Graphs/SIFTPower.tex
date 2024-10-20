@@ -1,0 +1,49 @@
+\begin{tikzpicture}
+  \begin{axis}[                    
+  ybar,    
+  ymin=0,
+  ymode=log,
+  scaled y ticks=false,  
+  width=\columnwidth,  
+  legend image code/.code={ \draw[#1, draw=none] (0cm,-0.1cm) rectangle (0.5cm,0.3cm);},
+  legend style={
+    at={(0.70,0.99)},
+    anchor=north,
+    legend columns=2,
+    draw=black,
+    fill=white,
+    thick
+  },
+  ylabel={Power Consumption (Joules)},
+  symbolic x coords={Total,RGB2Gray,Gaussian Pyramid,Extrema Detect,Orientation \& Magnitude,Descriptor Generation},
+  xtick=data,
+  nodes near coords,
+  scaled x ticks=false,
+  nodes near coords style={
+    font=\normalsize,
+    anchor=west,
+    rotate=90,
+    inner xsep=1pt,
+    /pgf/number format/.cd,
+    fixed,
+    precision=2,
+    /tikz/every node/.append style={xshift=0.2cm}
+  },
+  enlarge x limits=0.09,
+  bar width=0.35cm,
+  x tick label style={
+    align=center,   % enable text wrapping
+    text width=1.5cm  % set the text width
+  }
+  ]
+  \addplot[pattern=north west lines,pattern color=black, fill=blue!20, postaction={pattern=north east lines}] coordinates {(Total, 80640)(RGB2Gray,72)(Gaussian Pyramid, 64980)(Extrema Detect, 8400)(Orientation \& Magnitude, 7760)(Descriptor Generation, 1575)};%CPU
+  
+  \addplot[pattern=north east lines,pattern color=black,fill=green!40, postaction={pattern=dots}] coordinates {(Total,540.46)(RGB2Gray,18.9)(Gaussian Pyramid, 240)(Extrema Detect, 80)(Orientation \& Magnitude, 180)(Descriptor Generation, 43)};%GPU
+ 
+  \addplot[pattern=dots,pattern color=black,fill=red!30, postaction={pattern=grid}] coordinates {(Total, 403.2) (RGB2Gray,9.72) (Gaussian Pyramid, 192)(Extrema Detect, 55)(Orientation \& Magnitude, 36)(Descriptor Generation,29)};%FPGA
+
+  \addplot[pattern=horizontal lines,pattern color=black,fill=brown!30, postaction={pattern=horizontal lines}] coordinates {(Total, 442.4) (RGB2Gray,51.2) (Gaussian Pyramid, 220)(Extrema Detect, 72)(Orientation \& Magnitude, 53)(Descriptor Generation,32)};%HP
+
+  \legend{CPU: 5900X,GPU: 3070,FPGA: ZCU106, Heterogeneous}
+  \end{axis}
+\end{tikzpicture}

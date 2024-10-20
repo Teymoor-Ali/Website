@@ -1,0 +1,118 @@
+\begin{tikzpicture}
+    \begin{axis}[   
+    width  = \textwidth,    
+    major x tick style = transparent,   
+    ybar=2*\pgflinewidth,     
+    ymin=0,       
+    bar width=6.5pt,      
+    enlarge y limits={upper=0.15},    
+    legend image code/.code={\draw[#1, draw=none, fill=none] (1cm,-0.1cm) rectangle (0.3cm,0.3cm);
+                },
+        ymajorgrids = true,
+        xticklabel style={font=\bfseries},
+        ylabel style={font=\bfseries},
+        ylabel = {Energy Consumption (Joules)},
+        extra y ticks={0},       
+        symbolic x coords={Baseline,Datatype,3X3 Kernel,Dwnsmple,Separable}, 
+        xtick = data,
+        nodes near coords,
+        nodes near coords style={font=\small, anchor=west,rotate=90,inner xsep=0.5pt,  /pgf/number format/.cd,  fixed, precision=2},
+        scaled y ticks = false,
+        enlarge x limits=0.15,
+        legend cell align=left,
+        enlarge y limits={upper=0.15},
+        legend style={at={(0.56,1.6)}, anchor=west, legend columns=-1, font=\large}
+    ]
+        \addplot[draw=black, pattern=north east lines, pattern color=black, postaction={pattern=north east lines}, fill=blue!40] coordinates {(Baseline, 1.12) (Datatype,1.03) (3X3 Kernel,0.6)(Dwnsmple,0.95)(Separable,0.56)}; % Changed this line
+        
+        \addplot[draw=black, pattern=north east lines, pattern color=black, postaction={pattern=north east lines},fill=green!40] coordinates {(Baseline,0.10) (Datatype,0.08) (3X3 Kernel,0.04)(Dwnsmple,0.10)(Separable,0.08)}; % Changed this line
+        
+        \addplot[draw=black, pattern=north east lines, pattern color=black, postaction={pattern=north east lines},fill=red!40] coordinates {(Baseline,0.08) (Datatype,0.07) (3X3 Kernel,0.05)(Dwnsmple,0.075)(Separable,0.06)}; % Changed this line
+        
+        \addplot[draw=black, pattern=crosshatch, pattern color=black, postaction={pattern=crosshatch}, fill=blue!40]  coordinates {(Baseline, 0.91) (Datatype,0.78) (3X3 Kernel,0.50)(Dwnsmple, 0.70)(Separable,0.36)}; % Changed this line
+        
+       \addplot[draw=black, pattern=crosshatch, pattern color=black, postaction={pattern=crosshatch},fill=green!40] coordinates {(Baseline,0.09) (Datatype,0.06) (3X3 Kernel,0.07)(Dwnsmple,0.08) (Separable,0.044)}; % Changed this line
+       
+        \addplot[draw=black, pattern=crosshatch, pattern color=black, postaction={pattern=crosshatch},fill=red!40] coordinates {(Baseline,0.06) (Datatype,0.05) (3X3 Kernel,0.04)(Dwnsmple,0.06) (Separable,0.041)}; % Changed this line
+        
+        \addplot[draw=black, pattern=horizontal lines, pattern color=black, postaction={pattern=horizontal lines}, fill=blue!40]  coordinates {(Baseline, 2.46) (Datatype,2.27) (3X3 Kernel,1.98)(Dwnsmple,2.32) (Separable,1.38)}; % Changed this line
+        
+        \addplot[draw=black, pattern=horizontal lines, pattern color=black, postaction={pattern=horizontal lines},fill=green!40] coordinates {(Baseline,0.12) (Datatype,0.11) (3X3 Kernel,0.095)(Dwnsmple,0.12) (Separable,0.10)}; % Changed this line
+        
+        \addplot[draw=black, pattern=horizontal lines, pattern color=black, postaction={pattern=horizontal lines},fill=red!40] coordinates {(Baseline,0.08) (Datatype,0.07) (3X3 Kernel,0.072)(Dwnsmple,0.078)(Separable,0.05)}; % Changed this line
+    \end{axis}
+
+\begin{axis}[hide axis,
+extra y ticks={0},     
+xmin=0,
+xmax=1,
+ymin=0,
+ymax=1,
+legend style={at={(0.58,-0.30)}, anchor=west, legend columns=-1, font=\large}]    
+    \addlegendimage{legend image code/.code={\draw[#1, draw=none] (0cm,-0.1cm) rectangle (0.3cm,0.1cm);}, legend image post style={line width=1.5pt}}    
+    \addlegendentry{}    
+    \addlegendimage{blue!40, line width=5pt}    
+    \addlegendentry{CPU}
+    \addlegendimage{green!40, line width=5pt}    
+    \addlegendentry{GPU}
+    \addlegendimage{red!40, line width=5pt}    
+    \addlegendentry{FPGA}    
+\end{axis}
+
+\begin{axis}[
+    hide axis,
+    xmin=0,
+    extra y ticks={0},     
+    xmax=1,
+    ymin=0,
+    ymax=1,
+    xticklabels={Baseline,DataType,3x3 Kernel, Separable},
+    legend style={
+        at={(0.9,1.9)},
+        anchor=west,
+        legend columns=-1,
+        font=\large
+    },
+    legend image code/.code={\draw[#1,  fill=none] (1cm,-0.1cm) rectangle (0.3cm,0.3cm);
+                }
+]
+    \addplot[
+        draw=none,
+        pattern=north east lines,
+        pattern color=black,
+        postaction={pattern=north east lines},
+        fill=blue!40
+    ] coordinates {
+        (0, 0)
+        (0, 0)
+        (0, 0)
+    };
+        
+    \addplot[
+        draw=none,
+        pattern=crosshatch,
+        pattern color=black,
+        postaction={pattern=crosshatch},
+        fill=green!40
+    ] coordinates {
+        (0,0)
+        (0,0)
+        (0,0)
+    };
+        
+    \addplot[
+        draw=none,
+        pattern=horizontal lines,
+        pattern color=black,
+        postaction={pattern=horizontal lines},
+        fill=red!40
+    ] coordinates {
+        (0,0)
+        (0,0)
+        (0,0)
+    };
+    
+    \legend{Box,Gaussian,Sobel}
+\end{axis}
+
+\end{tikzpicture}

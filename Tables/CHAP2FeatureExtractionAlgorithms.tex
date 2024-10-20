@@ -1,0 +1,25 @@
+\begin{table*}[h]
+    \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{c|c|c|c|c|c|c}
+    \toprule
+    Paper & Algorithm & Platform & Image Size & Processing Core  & FPS & Clock (Mhz) \\ \midrule
+    J.Q., Peng Et al. \cite{PenLiuLyu16} &  SIFT   &   ZC702    & 1920*1080 &  FPGA  & 30 & 100  \\ \midrule
+    Luka, Daoud Et al.\cite{DaoLatJacRaf19}    &    SIFT   &  Zynq-7000  &  512*384 & FPGA & 130 &100\\ \midrule
+     Ruiqi, Wang Et al. \cite{WanJeo17}  &    SIFT    &  Xilinx  &  256x256 & FPGA & 30 & 100\\ \midrule
+    Wenjie, Chen Et al.\cite{CheDinCha16}    &   SURF    & 	Zedboard   &  640*480    &   FPGA  &  50& 66.7  \\ \midrule
+    Ying, Zhang Et al. \cite{ZhaHuaHan17}   &  SURF  & Zynq-7000  & 640*480  & ARM/FPGA & 150 & 200 \\ \midrule
+    Dimitris, Bouris\cite{BouNikPap10} &   SURF & Virtex-5   &  640 x 480   &  FPGA   &  56 & 200  \\ \midrule
+   Jin, Zhao Et al. \cite{ZhaZhuHua13}   &     SURF & Kintex-7	   &  800x600   & FPGA    & 60 & 125.92  \\ \midrule
+   Tomyslav, Sledevic Et al. \cite{SleSer12}  &   SURF    & Virtex-4  	   &  640×480    &  FPGA   & 60  & 25 \\ \midrule
+   Josh, Weberruss Et al. \cite{WebKleBol17}  &   ORB    &  Arria V    &  640×480    &  FPGA   & 488  & 150 \\ \midrule
+   Weikang, Fang Et al. \cite{SleSer12}  &   ORB    & Stratix V     &  640×480    &  FPGA   & 67  & 203 \\ 
+    \midrule
+   Kalms, Lester Et al. \cite{LesKhaDia17}  &   Kaze    & ZedBoard      &  1024x768    &  FPGA/ARM   & 98   & 100 \\
+    \midrule
+   Rongtao, Ding Et al. \cite{LesKhaDia17}  &   FAST    & Zynq-7000      &  640×480    &  FPGA/ARM   & 50   & 144  \\
+    \bottomrule
+    \end{tabular}
+    }
+    \caption{Feature Extraction Algorithms on FPGA}
+    \label{tab:PlatformSummary}
+\end{table*}

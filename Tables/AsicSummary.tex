@@ -1,0 +1,24 @@
+\begin{table}[H]
+\centering
+\setlength{\extrarowheight}{0pt}
+\addtolength{\extrarowheight}{\aboverulesep}
+\addtolength{\extrarowheight}{\belowrulesep}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\caption{ASICs and Their Specifications}
+\label{tab:ASIC_specs}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lccccc} 
+\toprule
+\rowcolor[rgb]{0.753,0.753,0.753} \multicolumn{1}{c|}{\textbf{Manufacturer}} & \multicolumn{1}{c|}{\textbf{ASIC Type}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Clock }\\\textbf{(MHz)}\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Power }\\\textbf{(W)}\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Process }\\\textbf{Node}\end{tabular}} & \textbf{Applications} \\ 
+\midrule
+Intel Movidius Myriad X & VPU & 1050 & 2.5 & 16nm & Edge devices, AI inference \\
+Google TPU & TPU & 1800 & 10 & 7nm & Machine learning accelerators \\
+ARM Ethos-U55 & NPU & 1000 & 1 & 7nm & IoT devices, edge computing \\
+Huawei Kirin & NPU & 820 & 1 & 7nm & Smartphones, AI applications \\
+Graphcore IPU & VPU & 500 & 252 & 16nm & AI workloads, data centres \\
+Intel Neural Compute Stick & NPU & 700 & 1.5 & 28nm & Machine translation, NLP, Edge AI \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

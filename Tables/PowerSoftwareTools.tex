@@ -1,0 +1,15 @@
+\begin{table}[!t]
+\centering
+\caption[Power Measurement Software \& Tools]{Power Measurement Software \& Tools used for each Architecture}
+\label{tab:powermeasure}
+\resizebox{0.8\columnwidth}{!}{%
+\begin{tabular}{c|cc}
+\toprule
+\multirow{2}{*}{Accelerator} & \multicolumn{2}{c}{Power Measurement} \\ \cline{2-3} 
+ & \multicolumn{1}{c|}{Sofware} & Tool \\ \midrule
+CPU & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}HWMonitor\cite{cpuid} \\ RAPL\cite{RAPL}\end{tabular}} & Otii Arc Pro\cite{qoitech_2023} \\ \midrule
+GPU & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Nvidia-SMI\cite{Nvidiasmi}\\ TegraStats\cite{tegrastats}\end{tabular}} & Otii Arc Pro \\ \midrule
+FPGA & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}XBUtil\cite{XButil}\\ Vivado Power Analyser\end{tabular}} & \begin{tabular}[c]{@{}c@{}}MaxPower-tool\cite{MAXIM} /\\ Otii Arc\end{tabular} \\ \bottomrule
+\end{tabular}%
+}
+\end{table}

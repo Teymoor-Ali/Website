@@ -1,0 +1,63 @@
+\pgfplotsset{width=\textwidth,compat=1.3}
+\begin{tikzpicture}
+    \begin{axis}[
+        width  = \textwidth,
+        major x tick style = transparent,
+        ybar=2*\pgflinewidth,
+        ymin=0,ymax=100,
+        bar width=4.1pt,
+        enlarge y limits={upper=0.15},
+        legend image code/.code={\draw[#1, draw=none] (0cm,-0.1cm) rectangle (0.3cm,0.1cm);
+                },
+        ymajorgrids = true,
+        ylabel = {Power Consumption (Watts)},
+        symbolic x coords={CPU,GPU,FPGA,HLS},
+        xtick = data,
+        nodes near coords,
+        nodes near coords style={font=\tiny, anchor=west,rotate=90,inner xsep=0.5pt,black},
+        scaled y ticks = false,
+        enlarge x limits=0.17,
+        legend cell align=left,
+           enlarge y limits={upper=0.15},
+    legend style={at={(0.342,0.864)},
+                   anchor=west,legend columns=3, font=\small},
+    ]
+        \addplot[style={blue,fill=blue}]
+            coordinates {(CPU, 65) (GPU,32) (FPGA,20)(HLS,23)}; % RGB2GRAY
+        \addplot[style={darkcandyapplered,fill=darkcandyapplered}]
+             coordinates {(CPU,75) (GPU,36) (FPGA,26)(HLS,27)}; % Gaussian
+        \addplot[style={forestgreen,fill=forestgreen}]
+             coordinates {(CPU,82) (GPU,38) (FPGA,27)(HLS,30)}; % Box
+        \addplot[style={gray,fill=gray}]
+             coordinates {(CPU,102) (GPU,61) (FPGA,42)(HLS,48)}; % Median
+        \addplot[style={pastelorange,fill=pastelorange}]
+             coordinates {(CPU,85) (GPU,44) (FPGA,32)(HLS,33)}; % Sobel
+        \addplot[style={oorange,fill=oorange}]
+             coordinates {(CPU,73) (GPU,30) (FPGA,21)(HLS,24)}; % resize
+        \addplot[style={purple,fill=purple}]
+             coordinates {(CPU,70) (GPU,28) (FPGA,22)(HLS,22)}; % image add
+        \addplot[style={richlavender,fill=richlavender}]
+             coordinates {(CPU,69) (GPU,28) (FPGA,21)(HLS,22)}; % image subtract
+        \addplot[style={teal,fill=teal}]
+             coordinates {(CPU,70) (GPU,33) (FPGA,23)(HLS,23)}; % erode
+        \addplot[style={ppink,fill=ppink}]
+             coordinates {(CPU,71) (GPU,34) (FPGA,25)(HLS,26)}; % dilate
+        \addplot[style={bbrown,fill=bbrown}]
+             coordinates {(CPU,87) (GPU,45) (FPGA,31)(HLS,23)};  % Gamma           
+        \addplot[style={cyan,fill=cyan}]
+             coordinates {(CPU,73) (GPU,35) (FPGA,24)(HLS,26)}; % Placeholder for Linearization
+        \addplot[style={magenta,fill=magenta}]
+             coordinates {(CPU,78) (GPU,39) (FPGA,28)(HLS,31)}; % Placeholder for White Balance
+        \addplot[style={peridot,fill=peridot}]
+             coordinates {(CPU,90) (GPU,50) (FPGA,25.5)(HLS,30)}; % GEMM
+        \addplot[style={wenge,fill=wenge}]
+             coordinates {(CPU,88) (GPU,46) (FPGA,24)(HLS,29)}; % FFT
+        \addplot[style={yellow-green,fill=yellow-green}]
+             coordinates {(CPU,85) (GPU,41) (FPGA,26)(HLS,33)}; % STREAM
+        \addplot[style={brown,fill=brown}]
+             coordinates {(CPU,77) (GPU,38) (FPGA,30)(HLS,31.5)}; %Demosaicing
+        \legend{R2G,Gaussian,Box,Median,Sobel,Resizing, Addition, Subtraction, Erode, Dilate, Gamma Corr., Linearization,White Balance,GEMM, FFT, STREAM, Demosaicing}
+    \end{axis}
+\end{tikzpicture}
+
+%266

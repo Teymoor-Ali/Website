@@ -1,0 +1,48 @@
+
+\let\origdescription\description
+\renewenvironment{description}{
+  \setlength{\leftmargini}{0em}
+  \origdescription
+  \setlength{\itemindent}{-1em}
+}
+{\endlist}
+\unnumberedchapter{Statement of Originality}
+\label{chap:soo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The research conducted within the scope of this thesis produced the following novel and unique contributions towards domain-specific optimisation techniques for image processing algorithms on heterogeneous architectures:
+
+\begin{description}
+  \item[Chapter 3]\hfill
+    \begin{description}
+       \item[--] State of the art analysis of literature found within the heterogeneous computing and domain-specific optimisation research domain.
+    \end{description}
+  \item[Chapter 4]\hfill
+    \begin{description}
+      \item[--] A framework that studies features of image processing algorithms to identify characteristics. These features help partition complex algorithms in determining optimal target accelerators within heterogeneous architectures.
+      
+      \item[--] The approach adopts a systemic and multi-layer strategy that offers trade-offs between accuracy within the imaging sub-domains \eg \textit{CNNs} and \textit{feature extraction.} Specifically, \textit{HArBoUR} enables support in constructing end to end vision systems while providing expected results and guidance.
+      
+      \item[--] Domain knowledge-guided hardware evaluation of computational tasks allows imaging algorithms to be mapped onto hardware platforms more efficiently than a heuristic based approach.
+
+       \item[--] Benchmark of representative image processing algorithms and pipelines on various hardware platforms and measure their \emph{energy consumption} and \emph{execution time} performance. The results are evaluated to gain insight into why certain processing accelerators perform better or worse based on the characteristics of the imaging algorithm.
+    \end{description}
+    \item[Chapter 5]\hfill
+    \begin{description}
+    \item[--] Proposition of four domain-specific optimisation strategies for image processing and analysing their impact on performance, power and accuracy;
+    
+    \item[--] Validation of the proposed optimisations on widely used representative image processing algorithms and CNN architectures (MobilenetV2 \& ResNet50) through profiling various components in identifying the common features and properties that have the potential for optimisations.
+    \end{description}
+
+    \item[Chapter 6]\hfill
+    \begin{description}
+  \item[--] Proposal of an efficient deployment of a CNN that is computationally faster and consumes less energy. 
+  \item[--] Novel partitioning methods on a heterogeneous architecture by studying the features of CNNs to identify characteristics found in each layer which are used to determine a suitable accelerator.
+  \item[--] Two heterogeneous platforms which consist of two configurations are developed, one high-performance and the other, power-optimised embedded system.
+  \item[--] Benchmarking and evaluating runtime, energy, and inference of popular convolution neural networks on a wide range of processing architectures and heterogeneous systems. 
+    \end{description}
+
+
+\end{description}
+
+
+

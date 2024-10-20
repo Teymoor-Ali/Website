@@ -1,0 +1,29 @@
+\begin{table}[H]
+\centering
+\setlength{\extrarowheight}{0pt}
+\addtolength{\extrarowheight}{\aboverulesep}
+\addtolength{\extrarowheight}{\belowrulesep}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\caption{Hardware Architecture Specification Summary.}
+\label{tab:HardwareSummary}
+\arrayrulecolor{black}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|c|c|c|c|c|c} 
+\toprule
+\rowcolor[rgb]{0.753,0.753,0.753} {\cellcolor[rgb]{0.753,0.753,0.753}} & {\cellcolor[rgb]{0.753,0.753,0.753}} & \multicolumn{2}{c|}{Compute Type} & {\cellcolor[rgb]{0.753,0.753,0.753}} & \multicolumn{2}{c}{Execution Paradigm} \\ 
+\hhline{>{\arrayrulecolor[rgb]{0.753,0.753,0.753}}->{\arrayrulecolor{black}}|>{\arrayrulecolor[rgb]{0.753,0.753,0.753}}->{\arrayrulecolor{black}}|-|-|>{\arrayrulecolor[rgb]{0.753,0.753,0.753}}->{\arrayrulecolor{black}}|-|-}
+\rowcolor[rgb]{0.753,0.753,0.753} \multirow{-2}{*}{{\cellcolor[rgb]{0.753,0.753,0.753}}Architecture} & \multirow{-2}{*}{{\cellcolor[rgb]{0.753,0.753,0.753}}Flexibility} & Temporal & Spatial & \multirow{-2}{*}{{\cellcolor[rgb]{0.753,0.753,0.753}}Latency} & Dataflow & Instruction \\ 
+\cmidrule{1-4}\cline{5-5}\cmidrule{6-7}
+CPU & General & \checkmark & \checkmark & Medium & × & \checkmark \\ 
+\midrule
+GPU & General & \checkmark & \checkmark & High & × & \checkmark \\ 
+\midrule
+FPGA & General & ~ ×\textsuperscript{(1)} & \checkmark & Low & \checkmark & × \\ 
+\midrule
+ASIC & Fixed & × & \checkmark & Low & \checkmark & × \\
+\bottomrule
+\multicolumn{7}{c}{(1) FPGA's can support temporal compute, however impractical considering overhead and effectiveness.} \\
+\end{tabular}
+}
+\end{table}

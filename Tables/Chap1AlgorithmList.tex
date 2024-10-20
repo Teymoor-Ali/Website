@@ -1,0 +1,57 @@
+\begin{table}
+\centering
+\setlength{\extrarowheight}{0pt}
+\addtolength{\extrarowheight}{\aboverulesep}
+\addtolength{\extrarowheight}{\belowrulesep}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\caption{List of Implemented Image Processing \& Benchmarking Algorithms}
+\label{tab:algorithms}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|c|c|c|c} 
+\toprule
+\rowcolor[rgb]{0.753,0.753,0.753} Algorithm & Complexity & Operator Group & Configuration & Description \\ 
+\cmidrule{1-3}\cline{4-4}\cmidrule{5-5}
+RGB2Grey & Low & Point Operations & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}R:0.299 G:0.587\\B:0.114\end{tabular}} & Convert RGB image to greyscale \\ 
+\hline
+Resizing & Low & Geometric Transformation & 2.5x Upsampling & Change image dimensions by interpolation \\ 
+\hline
+Image Addition & Low & Point Operations & \textasciitilde{} & Add two images pixel-wise \\ 
+\hline
+Image Subtraction & Low & Point Operations & \textasciitilde{} & Subtract one image from another pixel-wise \\ 
+\hline
+Gamma Correction & Low & Linear Filter & \gamma = 2.2 & Adjust pixel intensities using gamma values \\ 
+\hline
+Linearization & Medium & Point Operations & \textasciitilde{} & Correct non-linear sensor response \\ 
+\hline
+Erode & Medium & Morphological Operations & 5x5 & Erode image regions \\ 
+\hline
+Dilate & Medium & Morphological Operations & 5x5 & Dilate image regions \\ 
+\hline
+Box Filter & Medium & Linear Filter & 5x5 & Apply simple box averaging \\ 
+\hline
+Gaussian Filter & Medium & Linear Filter & 5x5 & Apply Gaussian blurring \\ 
+\hline
+Sobel Filter & Medium & Non-linear Filter & 7x7 & Detect edges using Sobel operator \\ 
+\hline
+Median & Medium & Non-linear Filter & 5x5 & Replaces each pixel value with the median value \\ 
+\hline
+White Balance & Medium & Linear 
+
+Filter & Gray World  & Adjust color balance in images \\ 
+\hline
+GEMM & Medium & Fundamental & N=4096 & General Matrix Multiply (GEMM) operation \\ 
+\hline
+FFT (DFT) & Medium & Fundamental & \begin{tabular}[c]{@{}c@{}}radix-2 / R2C\\Zero Padding\end{tabular} & Compute Fast Fourier Transform of signals \\ 
+\hline
+STREAM & Medium & Fundamental & N=1 \times 10^7 & Evaluate memory bandwidth and latency \\ 
+\hline
+Demosaicing & Medium & Non-linear Filter & \begin{tabular}[c]{@{}c@{}}Bilinear\\Interpolation\end{tabular} & Convert Bayer-pattern image to RGB \\ 
+\hline
+SIFT & High & Feature Extraction & 2 Octave 4 Scale & Scale-Invariant Feature Transform for image matching \\ 
+\hline
+\begin{tabular}[c]{@{}c@{}}CNN (Classification)\\\end{tabular} & High & Deep Learning & \begin{tabular}[c]{@{}c@{}}ResNet18 \& \\MobileNetV2\end{tabular} & Feature Extraction and Classification using Neural Networks \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

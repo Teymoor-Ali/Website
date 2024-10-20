@@ -1,0 +1,36 @@
+\begin{table}[]
+\centering
+\setlength{\extrarowheight}{0pt}
+\addtolength{\extrarowheight}{\aboverulesep}
+\addtolength{\extrarowheight}{\belowrulesep}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\caption{Mobilenet-V2: Result Summary of Energy Consumption and Execution Time on Each Architecture. (Bold: Best Runtime Performance)}
+\label{tab:Mobilenet-V2 Result Summary}
+\arrayrulecolor{black}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{c|c|c|c|c|c|c|c} 
+\toprule
+\rowcolor[rgb]{0.753,0.753,0.753} {\cellcolor[rgb]{0.753,0.753,0.753}} & \multicolumn{3}{c|}{\textbf{Execution time (s)}} & {\cellcolor[rgb]{0.753,0.753,0.753}} & {\cellcolor[rgb]{0.753,0.753,0.753}} & {\cellcolor[rgb]{0.753,0.753,0.753}} & {\cellcolor[rgb]{0.753,0.753,0.753}} \\ 
+\hhline{>{\arrayrulecolor[rgb]{0.753,0.753,0.753}}->{\arrayrulecolor{black}}--->{\arrayrulecolor[rgb]{0.753,0.753,0.753}}----}
+\rowcolor[rgb]{0.753,0.753,0.753} \multirow{-2}{*}{{\cellcolor[rgb]{0.753,0.753,0.753}}\textbf{Accelerator}} & Total wallclock time & Inference & Convolution & \multirow{-2}{*}{{\cellcolor[rgb]{0.753,0.753,0.753}}\begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Sum CPU + Device}\\\textbf{ (Joule)}\end{tabular}} & \multirow{-2}{*}{{\cellcolor[rgb]{0.753,0.753,0.753}}\begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Total CPU}\\\textbf{ (Joule)}\end{tabular}} & \multirow{-2}{*}{{\cellcolor[rgb]{0.753,0.753,0.753}}\begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Total Device}\\\textbf{ (Joule)}\end{tabular}} & \multirow{-2}{*}{{\cellcolor[rgb]{0.753,0.753,0.753}}\begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Datalogger }\\\textbf{ (Joule)}\end{tabular}} \\ 
+\arrayrulecolor{black}\midrule
+CPU: (i9-11900KF) & 0.28 & 0.023 & 0.02 & 24.4 & 24.4 & N/A & 20.23 \\ 
+\midrule
+CPU: (5900X) & 0.31 & 0.025 & 0.022 & 25.3 & 25.3 & N/A & 21.48 \\ 
+\midrule
+GPU: (GTX 3070) & 0.231 & 0.0048 & 0.0045 & 21.945 & 9.24 & 12.70 & 19.43 \\ 
+\midrule
+Jetson (Xavier NX) & 0.79 & 0.018 & 0.0125 & 15.28 & N/A & 15.28 & 14.92 \\ 
+\midrule
+FPGA: (ARCTIX7) & 1.4 & 0.098 & 0.088 & 7.32 & N/A & 7.32 & 6.24 \\ 
+\midrule
+FPGA: (ZCU106) & 0.20 & 0.0046 & 0.0036 & 10.55 & N/A & 10.55 & 9.65 \\ 
+\midrule
+\rowcolor[rgb]{0.898,0.898,0.898} 5900x + 3070 + ZCU106 & \textbf{\uline{0.19}} & 0.0041 & 0.0029 & 9.89 & $\sim$ & $\sim$ & 9.01 \\ 
+\midrule
+\rowcolor[rgb]{0.898,0.898,0.898} ARM + Xavier +   Artix-7 & \textbf{\uline{0.74}} & 0.0145 & 0.015 & 6.80 & $\sim$ & $\sim$ & 5.86 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

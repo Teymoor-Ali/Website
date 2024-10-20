@@ -1,0 +1,39 @@
+\begin{table}[!tbh]
+\centering
+\caption{Execution times (ms) of combined pipeline (Total) and their corresponding algorithms including \textbf{memory transfer.}}
+\label{tab:executiontimemem}
+\resizebox{0.82\linewidth}{!}{%
+\begin{tabular}{c|c|c|c|c|c} 
+\toprule
+\rowcolor[rgb]{0.753,0.753,0.753} \textbf{Pipeline} & \textbf{Algorithm} & \textbf{CPU} & \textbf{GPU} & \textbf{FPGA} & \textbf{HLS} \\ 
+\midrule
+\multirow{4}{*}{\begin{tabular}[c]{@{}c@{}}Edge \\ Detection\end{tabular}} & RBG2GRAY & 20.77 & 49.48 & \textbf{0.4} & 0.53 \\ 
+\cline{2-6}
+ & Gaussian & 24 & 51.31 & \textbf{0.25} & 0.31 \\ 
+\cline{2-6}
+ & Sobel & 58.23 & 45.33 & \textbf{1.2} & 2.53 \\ 
+\cline{2-6}
+ & Edge Total & 63.45 & 51.4 & \textbf{1.44} & 1.6 \\ 
+\midrule
+\multirow{4}{*}{\begin{tabular}[c]{@{}c@{}}Feature \\ Extraction\end{tabular}} & \begin{tabular}[c]{@{}c@{}}Gaussian \\ Pyramid\end{tabular} & 1118 & \textbf{3} & 6 & 74 \\ 
+\cline{2-6}
+& \begin{tabular}[c]{@{}c@{}}Extrema \\ Detection\end{tabular} & 133 & \textbf{2} & 3 & 34 \\ 
+\cline{2-6}
+ & \begin{tabular}[c]{@{}c@{}}Orientation \\ Magnitude\end{tabular} & 128 & \textbf{1} & 2 & 28 \\ 
+\cline{2-6}
+ & Descriptor & 50 & \textbf{1} & 2 & 17 \\ 
+\cline{2-6}
+ & SIFT Total & 1434 & 57 & \textbf{13} & 153 \\ 
+\midrule
+\multirow{4}{*}{Classification} & RBG2GRAY & 20.34 & 48.43 & \textbf{0.40} & 0.53 \\ 
+\cline{2-6}
+ & Resize & 21.4 & 51.55 & \textbf{0.24} & 0.44 \\ 
+\cline{2-6}
+ & CNN & 2245 & 280 & \textbf{234} & 265 \\ 
+\cline{2-6}
+ & CNN Total & 2570 & 310 & \textbf{254} & 285 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+

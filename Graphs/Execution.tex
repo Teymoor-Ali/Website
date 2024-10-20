@@ -1,0 +1,62 @@
+\pgfplotsset{width=\textwidth,compat=1.3}
+\begin{tikzpicture}
+    \begin{axis}[
+        width  = \textwidth,
+        major x tick style = transparent,
+        ybar=2*\pgflinewidth,
+        ymax=2470,
+        bar width=6pt,
+        enlarge y limits={upper=0.15},
+        legend image code/.code={\draw[#1, draw=none] (0cm,-0.1cm) rectangle (0.3cm,0.1cm);
+                },
+        ymode=log,
+        ymajorgrids = true,
+        ylabel = {Execution Time in ms (log scale)},
+        symbolic x coords={CPU,GPU,FPGA,HLS},
+        xtick = data,
+        %nodes near coords,
+        nodes near coords style={font=\small, anchor=west,rotate=90,inner xsep=0.5pt, black},
+        scaled y ticks = false,
+        enlarge x limits=0.15,
+        ymin=0.1,
+        legend cell align=left,
+           enlarge y limits={upper=0.15},
+    legend style={at={(0.309,0.9265)},
+                   anchor=west,legend columns=4, font=\small},
+    ]
+        \addplot[style={blue,fill=blue!60}]
+            coordinates {(CPU, 0.77) (GPU,0.48) (FPGA,0.4)(HLS,0.53)}; %r2g
+            
+        \addplot[style={darkcandyapplered,fill=darkcandyapplered}]
+             coordinates {(CPU,4) (GPU,0.31) (FPGA,0.25)(HLS,0.31)}; %Gaussian
+             
+        \addplot[style={pastelorange,fill=pastelorange}]
+             coordinates {(CPU,30.23) (GPU,0.33) (FPGA,1.2)(HLS,2.53)};% Sobel
+             
+        \addplot[style={dimgray,fill=dimgray}]
+             coordinates {(CPU,43) (GPU,1.4) (FPGA,1.2)(HLS,1.6)};%Edge total
+             
+        \addplot[style={darkpowderblue,fill=darkpowderblue}]
+             coordinates {(CPU,1118) (GPU,3) (FPGA,6)(HLS,74)}; %Gaussian Pyramid
+             
+        \addplot
+             coordinates {(CPU,133) (GPU,2) (FPGA,3)(HLS,34)}; % Extrema Detection
+             
+        \addplot[style={violet,fill=violet}]
+             coordinates {(CPU,128) (GPU,1) (FPGA,2)(HLS,28)}; % Orientation
+             
+        \addplot[style={teal,fill=teal}]
+             coordinates {(CPU,50) (GPU,1) (FPGA,2)(HLS,17)}; % Descriptor
+             
+        \addplot[style={ppink,fill=ppink}]
+             coordinates {(CPU,1429) (GPU,7) (FPGA,13)(HLS,153)}; %Sift total
+             
+        \addplot[style={oorange,fill=oorange}]
+             coordinates {(CPU,1.4) (GPU,0.41) (FPGA,0.24) (HLS,0.44)}; %resize
+             
+        \addplot[style={bbrown,fill=bbrown}]
+             coordinates {(CPU,2470) (GPU,457) (FPGA,650)(HLS,980)};  % CNN
+             
+        \legend{R2G,Gaussian,Sobel, Edge Total, Gsn Pyd,Extrema,Orientation,Descriptor,SIFT Total, Resize, CNN Total}
+    \end{axis}
+\end{tikzpicture}

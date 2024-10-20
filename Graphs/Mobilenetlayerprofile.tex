@@ -1,0 +1,49 @@
+\begin{tikzpicture}
+  \begin{axis}[                      
+  ybar,     
+  ymin=0,     
+  ymax=0.30,
+  %height=6.5cm,
+  scaled y ticks=false,   
+  width=\columnwidth,                                
+  legend image code/.code={ \draw[#1, draw=none] (0cm,-0.1cm) rectangle (0.5cm,0.3cm);
+  },
+  legend style={
+    at={(0.85,0.99)},
+    anchor=north,
+    legend columns=1,
+    draw=black,
+    fill=white,
+    thick
+  },
+  ylabel={Execution Time (s)},
+  symbolic x coords={Total,BN1,BN2,BN3,BN4,BN5,BN6,BN7},
+  xtick=data,
+  nodes near coords,
+  scaled x ticks=false,
+  y tick label style={
+    /pgf/number format/fixed,
+  },
+  nodes near coords style={
+    font=\normalsize,
+    anchor=west,
+    rotate=90,
+    inner xsep=1pt,
+    /pgf/number format/.cd,
+    fixed,
+    precision=5,
+    /tikz/every node/.append style={xshift=0.2cm}
+  },
+  enlarge x limits=0.09,
+  bar width=0.4cm,
+  ]
+  \addplot[pattern=north west lines,pattern color=black, fill=blue!20, postaction={pattern=north east lines}] coordinates {(Total, 0.241)(BN1,0.02202)(BN2, 0.01502)(BN3, 0.01102)(BN4, 0.00902)(BN5, 0.00802)(BN6, 0.00602)(BN7, 0.00201)};
+  
+  \addplot[pattern=north east lines,pattern color=black,fill=green!40, postaction={pattern=dots}] 
+    coordinates {(Total, 0.23)(BN1, 0.015)(BN2, 0.010)(BN3, 0.007)(BN4, 0.007)(BN5,0.0009)(BN6, 0.0008)(BN7, 0.0008)};
+    
+  \addplot[pattern=dots,pattern color=black,fill=red!30, postaction={pattern=grid}] coordinates {(Total, 0.20) (BN1, 0.0034)(BN2, 0.0034)(BN3, 0.0021)(BN4, 0.0019)(BN5, 0.001)(BN6, 0.001)(BN7, 0.001)};
+  
+  \legend{CPU: 5900X,GPU: 3070,FPGA: ZCU102}
+  \end{axis}
+\end{tikzpicture}

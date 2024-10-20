@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Research Areas - Teymoor Ali</title>
+    <link rel="icon" type="image/x-icon" href="images/colours.png">
+
+    <!-- Bootstrap CSS (Bootstrap 5.3) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- FontAwesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://kit.fontawesome.com/3d008ae3fc.js" crossorigin="anonymous"></script>
+
     <!-- Font Import -->
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/css_reset.css" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/components.css" />
     <link rel="stylesheet" href="css/layout.css" />
-    <title>Research Areas</title>
 
     <style>
         /* Ensure the body and html take up the full height of the viewport */
@@ -27,53 +32,79 @@
             flex-direction: column;
         }
 
-        /* Main content should take up the remaining space */
         .content-wrapper {
-            flex: 1; /* Makes content-wrapper grow to fill available space */
+            flex: 1;
+            padding-bottom: 60px;
         }
 
-        /* Footer styling to stretch across the bottom */
         footer {
-            background-color: rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.1);
             text-align: center;
             width: 100%;
             padding: 10px;
-            position: relative;
-            bottom: 0;
         }
 
-        /* Ensure footer stays at the bottom */
         .footer-container {
-            background-color: #f8f9fa;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
+            background-color: #212529;
         }
 
-        /* Styling for the research cards */
+        .blog-post-title {
+            font-size: 2rem;
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            color: #fff;
+        }
+
+        /* Dark theme styles */
+        body {
+            background-color: #212529;
+            color: #fff;
+        }
+
+        a {
+            color: #0d6efd;
+        }
+
+        a:hover {
+            color: #0a58ca;
+        }
+
+        /* Custom styling for the cards */
         .card {
-            height: 100%; /* Ensures all cards are full height */
-            display: flex;
-            flex-direction: column; /* Makes card content stack vertically */
-        }
-
-        .card-img-top {
-            height: 200px; /* Fixes the image height */
-            object-fit: cover; /* Ensures the image fits the given height */
-        }
-
-        .card-body {
-            flex-grow: 1; /* Ensures the body stretches to fill the remaining space */
+            background-color: #343a40;
+            color: #fff;
+            border: none;
+            height: 100%; /* Ensures all cards take up the same height */
             display: flex;
             flex-direction: column;
         }
 
-        .card-text {
-            flex-grow: 1; /* Makes the text area grow to fill the card */
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Spaces out the text and button */
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
         }
 
         .btn {
-            align-self: flex-start; /* Keeps the button aligned to the bottom */
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
         }
 
         /* Carousel */
@@ -84,6 +115,15 @@
         .carousel-item .col-md-4 {
             flex: 1 0 33.33%; /* Ensures each card takes up 1/3 of the row */
             max-width: 33.33%; /* Sets the max-width to 1/3 */
+            padding: 0 15px; /* Adds space between the cards */
+        }
+        
+        .carousel-inner {
+            margin: 0 -15px; /* Adjusts the container to compensate for the padding on the cards */
+        }
+
+        .row {
+            margin-bottom: 30px; /* Adds space between the rows of cards */
         }
     </style>
 </head>
@@ -113,7 +153,7 @@
           <a class="nav-link" href="Blog.html">Blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="Research.html">Research</a>
+          <a class="nav-link" href="">Research</a>
         </li>
       </ul>
 
@@ -125,7 +165,9 @@
         </li>
         <!-- Google Scholar Icon -->
         <li class="nav-item">
-          <a class="nav-link" href="https://scholar.google.com/citations?user=Pa7Mhl4AAAAJ&hl" target="_blank"><i class="fa-brands fa-google-scholar" style="color: white;"></i></a>
+          <a class="nav-link" href="https://scholar.google.com/citations?user=Pa7Mhl4AAAAJ&hl" target="_blank">
+            <i class="fas fa-graduation-cap" style="color: white;"></i>
+          </a>
         </li>
         <!-- LinkedIn Icon -->
         <li class="nav-item">
@@ -142,7 +184,7 @@
 
 <!-- Main Content Wrapper -->
 <div class="content-wrapper container mt-5">
-  <h1 class="text-center mb-4">Current Research</h1>
+  <h1 class="text-center mb-4 blog-post-title">Current Research</h1>
   
   <!-- Carousel with Research Cards -->
   <div id="researchCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -156,7 +198,7 @@
               <div class="card-body">
                 <h5 class="card-title">Heterogeneous Computing</h5>
                 <p class="card-text">This research focuses on combining CPU-GPU-FPGA into a single fabric for higher performance and lower energy consumption.</p>
-                <a href="research1.html" class="btn btn-primary">Learn More</a>
+                <a href="Research-HC.html" class="btn btn-primary">Learn More</a>
               </div>
             </div>
           </div>
@@ -166,7 +208,7 @@
               <div class="card-body">
                 <h5 class="card-title">Spiking Neural Networks</h5>
                 <p class="card-text">Exploring spiking neural networks for energy-efficient computing in vision systems.</p>
-                <a href="research2.html" class="btn btn-primary">Learn More</a>
+                <a href="Research-SNN.html" class="btn btn-primary">Learn More</a>
               </div>
             </div>
           </div>
@@ -190,8 +232,6 @@
           </div>
         </div>
       </div>
-      
-
     </div>
 
     <!-- Carousel Controls -->
@@ -209,13 +249,12 @@
 <!-- Footer -->
 <footer class="footer-container mt-5">
   <div class="text-center p-3">
-    © 2024 All Rights Reserved
+    © 2024 Teymoor Ali. All Rights Reserved
   </div>
 </footer>
 
 <!-- Bootstrap JS and Popper.js -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

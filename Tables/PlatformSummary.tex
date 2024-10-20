@@ -1,0 +1,23 @@
+\begin{table}[tb]
+\centering
+\setlength{\extrarowheight}{0pt}
+\addtolength{\extrarowheight}{\aboverulesep}
+\addtolength{\extrarowheight}{\belowrulesep}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\caption{Hardware/Software Environment}
+\label{tab:HWEnvironment}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|c|c|c} 
+\toprule
+\rowcolor[rgb]{0.753,0.753,0.753} \textbf{Accelerator} & \textbf{High-Power} & \textbf{Low-Power} & \textbf{Software} \\ 
+\midrule
+CPU & \begin{tabular}[c]{@{}c@{}}AMD 5900x \\ (4.8 GHz)\end{tabular} & \begin{tabular}[c]{@{}c@{}}ARMv8.2 \\ (1400MHz)\end{tabular} & Python / Pytorch 2.0 \\ 
+\midrule
+GPU & \begin{tabular}[c]{@{}c@{}}Nvidia 3070 \\ (1730 MHz)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Xavier NX \\ (1100MHz)\end{tabular} & Python / Pytorch 2.0 \\ 
+\midrule
+FPGA & \begin{tabular}[c]{@{}c@{}}ZCU106 \\ (300Mhz)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Artix-7 \\ (100MHz)\end{tabular} & Verilog / Vivado / Vitis \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

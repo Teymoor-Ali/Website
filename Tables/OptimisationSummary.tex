@@ -1,0 +1,36 @@
+\begin{table}[H]
+\centering
+\setlength{\extrarowheight}{0pt}
+\addtolength{\extrarowheight}{\aboverulesep}
+\addtolength{\extrarowheight}{\belowrulesep}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\caption{SIFT: Optimisation Result Summary on FPGA, 300 Mhz Configuration (Octave, Scale).}
+\label{tab:Optimisation_Summary}
+\arrayrulecolor{black}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c} 
+\toprule
+\rowcolor[rgb]{0.753,0.753,0.753} {\cellcolor[rgb]{0.753,0.753,0.753}} & \multicolumn{2}{c|}{Gaussian} & \multicolumn{2}{c|}{Extrema} & \multicolumn{2}{c|}{Orientation} & \multicolumn{2}{c|}{Descriptor} & \multicolumn{2}{c|}{\begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}Total Runtime\\(ms)\end{tabular}} & \multicolumn{2}{c}{\begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}Overall Accuracy\\(\%)\end{tabular}} \\ 
+\hhline{>{\arrayrulecolor[rgb]{0.753,0.753,0.753}}->{\arrayrulecolor{black}}|-|-|-|-|-|-|-|-|-|-|-|-}
+\rowcolor[rgb]{0.753,0.753,0.753} \multirow{-2}{*}{{\cellcolor[rgb]{0.753,0.753,0.753}}\textbf{Operations}} & (2,4) & (4,5) & (2,4) & (4,5) & (2,4) & (4,5) & (2,4) & (4,5) & (2,4) & (4,5) & (2,4) & (4,5) \\ 
+\hline
+\textbf{Baseline FPGA (ms)} & 19 & 45 & 10 & 18 & 9 & 16 & 5 & 14 & 43 & 93 & 98.82\% & 99.34\% \\ 
+\cline{1-12}\cmidrule{13-13}
+\textbf{Downsampling} & 13 & 40 & 4 & 13 & 5 & 10 & 5 & 13 & 27 & 76 & 95.24\% & 97.62\% \\ 
+\cline{1-12}\cmidrule{13-13}
+\textbf{Integer Arithmetic} & 11 & 38 & 4 & 14 & 5 & 8 & 5 & 14 & 25 & 74 & 93.45\% & 95.86\% \\ 
+\cline{1-12}\cmidrule{13-13}
+\textbf{$3\times3$ Kernel} & 14 & 43 & 6 & 15 & 5 & 14 & 5 & 14 & 30 & 86 & 97.34\% & 98.98\% \\ 
+\cline{1-12}\cmidrule{13-13}
+\begin{tabular}[c]{@{}c@{}}\textbf{Downsampling}\\\textbf{ + Integer}\end{tabular} & 9 & 38 & 4 & 8 & 4 & 7 & 5 & 10 & 22 & 63 & 90.78\% & 91.52\% \\ 
+\cline{1-12}\cmidrule{13-13}
+\begin{tabular}[c]{@{}c@{}}\textbf{Downsampling }\\\textbf{+ $3\times3$}\end{tabular} & 9 & 38 & 5 & 12 & 5 & 8 & 5 & 10 & 24 & 68 & 91.85\% & 93.26\% \\ 
+\cline{1-12}\cmidrule{13-13}
+\begin{tabular}[c]{@{}c@{}}\textbf{Integer }\\\textbf{+ $3\times3$}\end{tabular} & 9 & 36 & 5 & 11 & 4 & 9 & 5 & 10 & 23 & 66 & 93.34\% & 94.45\% \\ 
+\cline{1-12}\cmidrule{13-13}
+\begin{tabular}[c]{@{}c@{}}\textbf{Downsampling + Integer }\\\textbf{+ $3\times3$}\end{tabular} & 8 & 36 & 3 & 8 & 4 & 6 & 5 & 10 & \textbf{\uline{20}} & \textbf{\uline{60}} & 89.45\% & 90.18\% \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

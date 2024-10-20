@@ -1,0 +1,58 @@
+\begin{tikzpicture}
+\begin{axis}[   
+xlabel={Total Runtime (s)},   
+ylabel={Energy Consumption (Joules)},   
+width=\columnwidth,        
+ymin=0,    
+xmin=0, 
+grid=major,    
+legend style={at={(0.77,1)},anchor=north}, anchor=west, legend columns=3, font=\small   ]
+
+\addplot[only marks, mark=square*, mark size=3pt,mark options={pattern=crosshatch}, blue] coordinates {
+        
+        (0.25, 20.035)
+    };
+\addlegendentry{i9-11900KF}
+
+\addplot[only marks, mark=square*, mark size=3pt, red] coordinates {
+        (0.29,24.4267)
+
+    };
+\addlegendentry{5900x}
+
+\addplot[only marks, mark=triangle*, mark size=3pt, mark options={pattern=crosshatch}, green] coordinates {
+        (0.18, 19.754)
+
+    };
+\addlegendentry{3070}
+
+
+\addplot[only marks, mark=o, mark size=3pt, black] coordinates {
+        (0.74, 13.58)
+
+    };
+\addlegendentry{Xavier NX}
+
+\addplot[only marks, mark=pentagon*, mark size=3pt, mark options={pattern=crosshatch}, orange] coordinates {
+        (1.4, 6.1)
+
+    };
+\addlegendentry{Artix-7}
+
+\addplot[only marks, mark=pentagon*, mark size=3pt, mark options={pattern=north east lines}, teal] coordinates {
+        (0.19, 9.12)
+    };
+\addlegendentry{ZCU106}
+\addplot[only marks, mark=asterisk, mark size=3pt, magenta] coordinates {
+        (0.17, 8.93)
+    };
+\addlegendentry{HP}
+
+\addplot[only marks, mark=+, mark size=3pt, black] coordinates {
+        (0.62, 5.9)
+    };
+\addlegendentry{LP}
+
+
+\end{axis}
+\end{tikzpicture}

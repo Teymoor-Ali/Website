@@ -1,0 +1,48 @@
+% \begin{table}[tb]
+% \caption{Average Reduction Ratios Relative to CPU Energy Consumption}
+% \label{tab:average_reduction_ratios}
+% \resizebox{\columnwidth}{!}{%
+% \begin{tabular}{c|c|c|c|c}
+% \hline
+% \rowcolor[HTML]{C0C0C0} 
+% \textbf{Operation Group} & \textbf{Algorithm}                      & \textbf{GPU} & \textbf{FPGA} & \textbf{HLS} \\ \hline
+% Image Preprocessing      & RGB2GRAY, Resize                        & 9.98x        & 14.63x        & 7.50x        \\ \hline
+% Image Arithmetic         & Addition, Subtraction                   & 27.95x       & 0.075x        & 0.125x       \\ \hline
+% Image Filters            & Gaussian, Box, Sobel, Median            & 40.07x       & 26.63x        & 16.20x       \\ \hline
+% Linear Algorithms        & White Balance, Linearisation            & 158.73x      & 189.58x       & 98.32x       \\ \hline
+% Non-linear Algorithms    & Erode, Dilate, Gamma Corr., Demosaicing & 6.63x        & 5.98x         & 4.65x        \\ \hline
+% Fundamental              & Gemm, FFT, STREAM                       & 46.27x       & 38.61x        & 22.15x       \\ \hline
+% \end{tabular}%
+% }
+% \end{table}
+
+
+\begin{table}[!tbh]
+\centering
+\caption{Reduction Ratios Relative to CPU Energy Consumption for Individual Algorithms. (Highest reduction ratio in bold.)}
+\label{tab:average_reduction_ratios}
+\resizebox{0.85\columnwidth}{!}{%
+\begin{tabular}{c|c|c|c|c}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+\textbf{Operation Group} & \textbf{Algorithm} & \textbf{GPU} & \textbf{FPGA} & \textbf{HLS} \\ \hline
+ & RGB2GRAY & 3.39x & \textbf{6.09x} & 3.93x \\ \cline{2-5} 
+\multirow{-2}{*}{Image Preprocessing} & Resize & 12.98x &\textbf{ 23.17x} & 11.06x \\ \hline
+ & Image Add & 21.67x & \textbf{33.09x} & 9.40x \\ \cline{2-5} 
+\multirow{-2}{*}{Image Arithmetic} & Image Sub & 34.23x &\textbf{ 45.63x} & 32.67x \\ \hline
+ & Gaussian & 26.04x & \textbf{40.38x} & 31.36x \\ \cline{2-5} 
+ & Box & 3.30x & \textbf{5.57x} & 4.28x \\ \cline{2-5} 
+ & Sobel & \textbf{160.15x} & 56.89x & 26.16x \\ \cline{2-5} 
+\multirow{-4}{*}{Image Filters} & Median & 2.82x & \textbf{3.70x} & 2.98x \\ \hline
+ & White Balance & \textbf{227.37x} & 214.90 x & 98.82x \\ \cline{2-5} 
+\multirow{-2}{*}{Linear Algorithms} & Linearisation & 90.10x & \textbf{164.25x} & 97.82x \\ \hline
+ & Erode & 3.55x & \textbf{4.24x} & 3.63x \\ \cline{2-5} 
+ & Dilate & 3.41x & \textbf{4.22x} & 3.48x \\ \cline{2-5} 
+ & Gamma Corr & \textbf{11.88x} & 8.62x & 7.07x \\ \cline{2-5} 
+\multirow{-4}{*}{Non-linear Algorithms} & Demosaicing & \textbf{7.69x} & 6.83x & 4.43x \\ \hline
+ & GEMM & \textbf{130.91x} & 102.67x & 56.47x \\ \cline{2-5} 
+ & FFT & 3.51x & \textbf{8.96x} & 6.68x \\ \cline{2-5} 
+\multirow{-3}{*}{Fundamental} & STREAM & 3.39x & \textbf{4.20x} & 3.31x \\ \hline
+\end{tabular}%
+}
+\end{table}

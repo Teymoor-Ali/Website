@@ -1,0 +1,51 @@
+\begin{table}
+\centering
+\setlength{\extrarowheight}{0pt}
+\addtolength{\extrarowheight}{\aboverulesep}
+\addtolength{\extrarowheight}{\belowrulesep}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\caption{Execution Time (Excl. Memory Latency) on Individual Hardware and Heterogeneous Platform (CPU: 5900X, GPU: RTX-3070, FPGA: ZCU102). Baseline excludes memory latency. Incl. Memory Latency as additional data. }
+\label{tab:heterogenoussummary}
+\arrayrulecolor{black}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|c|c|c|c|c|c} 
+\toprule
+\rowcolor[rgb]{0.753,0.753,0.753} {\cellcolor[rgb]{0.753,0.753,0.753}} & \multicolumn{3}{c|}{\textbf{Baseline (ms)}} & \multicolumn{3}{c}{\textbf{Heterogeneous Architecture (ms)}} \\ 
+\hhline{>{\arrayrulecolor[rgb]{0.753,0.753,0.753}}->{\arrayrulecolor{black}}------}
+\rowcolor[rgb]{0.753,0.753,0.753} \multirow{-2}{*}{{\cellcolor[rgb]{0.753,0.753,0.753}}\textbf{Algorithm}} & \textbf{CPU} & \textbf{GPU} & \textbf{FPGA} & \textbf{Accelerator} & \textbf{Excl. Memory Latency} & \textbf{Inc. Memory Latency} \\ 
+\cline{1-1}\cmidrule{2-2}\cline{3-3}\cmidrule{4-6}\cline{7-7}
+RGB2Gray & 0.80 & 0.54 & 0.40 & CPU & 0.64 & 0.78 \\ 
+\cmidrule{1-6}\cline{7-7}
+\begin{tabular}[c]{@{}c@{}}Gaussian\\ Pyramid\end{tabular} & 684 & 3 & 6 & GPU & 3 & 115 \\ 
+\cmidrule{1-6}\cline{7-7}
+\begin{tabular}[c]{@{}c@{}}Extrema\\ Detection\end{tabular} & 112 & 2 & 3 & GPU & 2 & 101 \\ 
+\cmidrule{1-6}\cline{7-7}
+\begin{tabular}[c]{@{}c@{}}Orientation \textbackslash{}\textbackslash{}\& \\ Magnitude\end{tabular} & 97 & 4 & 2 & FPGA & 2 & 2 \\ 
+\cmidrule{1-6}\cline{7-7}
+\begin{tabular}[c]{@{}c@{}}Descriptor\\ Generation\end{tabular} & 21 & 1 & 1 & FPGA & 1 & 1 \\ 
+\hhline{-------}
+\rowcolor[rgb]{0.902,0.902,0.902} Total Runtime & 896.8 & 10.54 & 12.4 & CPU+GPU+FPGA & 8.64 & {\cellcolor[rgb]{0.898,0.898,0.898}}219.78 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+% \begin{table}[t]
+% \caption{Execution time on individual hardware and heterogeneous platform.}
+% \label{tab:heterogenoussummary}
+% \resizebox{\textwidth}{!}{%
+% \begin{tabular}{c|ccc|ccc}
+% \toprule
+%  & \multicolumn{3}{c|}{\textbf{Baseline (ms)}} & \multicolumn{3}{c}{\textbf{Heterogeneous Architecture (ms)}} \\ \cline{2-7}  
+% \multirow{-2}{*}{\textbf{Algorithm}} & \multicolumn{1}{c|}{\textbf{CPU}} & \multicolumn{1}{c|}{\textbf{GPU}} & \textbf{FPGA} & \multicolumn{1}{c|}{\textbf{Accelerator}} & \multicolumn{1}{c|}{\textbf{Inc. Memory Latency}} & \textbf{Excl. Memory Latency} \\ \midrule
+% RGB2Gray & \multicolumn{1}{c|}{0.80} & \multicolumn{1}{c|}{0.54} & 0.40 & \multicolumn{1}{c|}{CPU} & \multicolumn{1}{c|}{1} &  \\ \midrule
+% \begin{tabular}[c]{@{}c@{}}Gaussian\\ Pyramid\end{tabular} & \multicolumn{1}{c|}{684} & \multicolumn{1}{c|}{3} & 4.5 & \multicolumn{1}{c|}{FPGA} & \multicolumn{1}{c|}{0} & 0 \\ \midrule
+% \begin{tabular}[c]{@{}c@{}}Extrema\\ Detection\end{tabular} & \multicolumn{1}{c|}{112} & \multicolumn{1}{c|}{2} & 3 & \multicolumn{1}{c|}{FPGA} & \multicolumn{1}{c|}{0} & 0 \\ \midrule
+% \begin{tabular}[c]{@{}c@{}}Orientation & \\ Magnitude\end{tabular} & \multicolumn{1}{c|}{97} & \multicolumn{1}{c|}{1} & 2 & \multicolumn{1}{c|}{GPU} & \multicolumn{1}{c|}{0} & 0 \\ \midrule
+% \begin{tabular}[c]{@{}c@{}}Descriptor\\ Generation\end{tabular} & \multicolumn{1}{c|}{21} & \multicolumn{1}{c|}{1} & 1 & \multicolumn{1}{c|}{GPU} & \multicolumn{1}{c|}{0} & 0 \\ \midrule
+% \rowcolor[HTML]{C0C0C0} 
+% \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}Total Runtime} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} 896}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} 7}} & {\color[HTML]{000000} 11} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}CPU+GPU+FPGA} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} 0}} & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} 0} \\ \bottomrule
+% \end{tabular}%
+% }
+% \end{table}

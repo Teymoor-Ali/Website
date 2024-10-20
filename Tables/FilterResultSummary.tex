@@ -1,0 +1,31 @@
+\begin{table}[H]
+\centering
+\caption{Image Processing Filters Summary \& Accuracy (RSME) Result Summary.}
+\label{tab:ImageProcessingAlgorithmOptimisationSummary}
+\arrayrulecolor{black}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c} 
+\toprule
+\rowcolor[rgb]{0.753,0.753,0.753} {\cellcolor[rgb]{0.753,0.753,0.753}} & \multicolumn{3}{c|}{{\cellcolor[rgb]{0.753,0.753,0.753}}} & \multicolumn{12}{c}{\textbf{Optimised Algorithm Runtimes (ms)}} \\ 
+\hhline{>{\arrayrulecolor[rgb]{0.753,0.753,0.753}}->{\arrayrulecolor{black}}|>{\arrayrulecolor[rgb]{0.753,0.753,0.753}}--->{\arrayrulecolor{black}}|---|---|---|---}
+\rowcolor[rgb]{0.753,0.753,0.753} {\cellcolor[rgb]{0.753,0.753,0.753}} & \multicolumn{3}{c|}{\multirow{-2}{*}{{\cellcolor[rgb]{0.753,0.753,0.753}}\begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Baseline}\\\textbf{ Runtime (ms)}\end{tabular}}} & \multicolumn{3}{c|}{\begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Datatype }\\\textbf{ (INT)}\end{tabular}} & \multicolumn{3}{c|}{\begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Kernel }\\\textbf{ (3x3)}\end{tabular}} & \multicolumn{3}{c|}{\textbf{Downsampling}} & \multicolumn{3}{c}{\begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Separable }\\\textbf{ Filter}\end{tabular}} \\ 
+\hhline{>{\arrayrulecolor[rgb]{0.753,0.753,0.753}}->{\arrayrulecolor{black}}|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-}
+\rowcolor[rgb]{0.753,0.753,0.753} \multirow{-3}{*}{{\cellcolor[rgb]{0.753,0.753,0.753}}\textbf{Algorithm}} & CPU & GPU & FPGA & CPU & GPU & FPGA & CPU & GPU & FPGA & CPU & GPU & FPGA & CPU & GPU & FPGA \\ 
+\midrule
+\begin{tabular}[c]{@{}c@{}}Box Filter\\ (50x50)\end{tabular} & 14 & 2.9 & 3.2 & 12 & 2.6 & 2.9 & 8 & 2.1 & 2.3 & 10 & 2.4 & 2.5 & 6 & \textbf{\uline{1.5}} & 1.8 \\ 
+\midrule
+\begin{tabular}[c]{@{}c@{}}Gaussian \\ Filter (31x31)\end{tabular} & 12 & 2.3 & 2.5 & 10 & 1.9 & 2.1 & 6 & 1.5 & 1.6 & 8 & 1.8 & 1.9 & 4 & \textbf{\uline{1.1}} & 1.3 \\ 
+\midrule
+\begin{tabular}[c]{@{}c@{}}Sobel \\ Filter (7x7)\end{tabular} & 30 & 3.4 & 3.2 & 27 & 3.1 & 2.9 & 23 & 2.7 & 2.4 & 25 & 2.9 & 2.7 & 15 & 1.8 & \textbf{\uline{1.6}} \\ 
+\midrule\midrule
+\multicolumn{16}{c}{{\cellcolor[rgb]{0.753,0.753,0.753}}\textbf{Accuracy (RSME)}} \\ 
+\midrule
+\begin{tabular}[c]{@{}c@{}}Box Filter \\ (50x50)\end{tabular} & 8.11 & 9.14 & 10.92 & 8.78 & 9.21 & 9.44 & 3.37 & 4.54 & 5.94 & 130.21 & 135.13 & 145.15 & 9.34 & 10.23 & 10.62 \\ 
+\midrule
+\begin{tabular}[c]{@{}c@{}}Gaussian \\ Filter (31x31)\end{tabular} & 6.68 & 8.45 & 10.26 & 6.69 & 7.59 & 7.64 & 4.01 & 5.27 & 6.89 & 145.4 & 149.42 & 164.22 & 7.83 & 8.16 & 8.53 \\ 
+\midrule
+\begin{tabular}[c]{@{}c@{}}Sobel \\ Filter (7x7)\end{tabular} & 10.25 & 11.43 & 12.45 & 10.28 & 11.42 & 11.88 & 10.16 & 11.35 & 12.14 & 130.41 & 132.78 & 148.21 & 11.32 & 12.42 & 12.64 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

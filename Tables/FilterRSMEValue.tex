@@ -1,0 +1,63 @@
+% \begin{table}[h]
+% \caption{Image Processing Filters Accuracy}
+% \label{tab:ImageProcessingAccuracy}
+% \resizebox{\columnwidth}{!}{%
+% \begin{tabular}{c|cccccccccccc}
+% \toprule
+% \multirow{3}{*}{Algorithm} & \multicolumn{12}{c}{Accuracy (RSME)}                                                                                                      \\ \cline{2-13} 
+%                            & \multicolumn{3}{c|}{Baseline} & \multicolumn{3}{c|}{Datatype (INT)} & \multicolumn{3}{c|}{Kernel (3x3)} & \multicolumn{3}{c}{Downsampling} \\ \cline{2-13} 
+%  &
+%   \multicolumn{1}{c|}{CPU} &
+%   \multicolumn{1}{c|}{GPU} &
+%   \multicolumn{1}{c|}{FPGA} &
+%   \multicolumn{1}{c|}{CPU} &
+%   \multicolumn{1}{c|}{GPU} &
+%   \multicolumn{1}{c|}{FPGA} &
+%   \multicolumn{1}{c|}{CPU} &
+%   \multicolumn{1}{c|}{GPU} &
+%   \multicolumn{1}{c|}{FPGA} &
+%   \multicolumn{1}{c|}{CPU} &
+%   \multicolumn{1}{c|}{GPU} &
+%   FPGA \\ \midrule
+% \begin{tabular}[c]{@{}c@{}}Box Filter\\ (50x50)\end{tabular} &
+%   \multicolumn{1}{c|}{8.11} &
+%   \multicolumn{1}{c|}{9.14} &
+%   \multicolumn{1}{c|}{10.92} &
+%   \multicolumn{1}{c|}{8.78} &
+%   \multicolumn{1}{c|}{9.21} &
+%   \multicolumn{1}{c|}{9.44} &
+%   \multicolumn{1}{c|}{3.37} &
+%   \multicolumn{1}{c|}{4.54} &
+%   \multicolumn{1}{c|}{5.94} &
+%   \multicolumn{1}{c|}{130.21} &
+%   \multicolumn{1}{c|}{135.13} &
+%   145.15 \\ \midrule
+% \begin{tabular}[c]{@{}c@{}}Gaussian \\ Filter (31x31)\end{tabular} &
+%   \multicolumn{1}{c|}{6.68} &
+%   \multicolumn{1}{c|}{8.45} &
+%   \multicolumn{1}{c|}{10.26} &
+%   \multicolumn{1}{c|}{6.69} &
+%   \multicolumn{1}{c|}{7.59} &
+%   \multicolumn{1}{c|}{7.64} &
+%   \multicolumn{1}{c|}{4.01} &
+%   \multicolumn{1}{c|}{5.27} &
+%   \multicolumn{1}{c|}{6.89} &
+%   \multicolumn{1}{c|}{145.4} &
+%   \multicolumn{1}{c|}{149.42} &
+%   164.22 \\ \midrule
+% \begin{tabular}[c]{@{}c@{}}Sobel \\ Filter (7x7)\end{tabular} &
+%   \multicolumn{1}{c|}{10.25} &
+%   \multicolumn{1}{c|}{11.43} &
+%   \multicolumn{1}{c|}{12.45} &
+%   \multicolumn{1}{c|}{10.28} &
+%   \multicolumn{1}{c|}{11.42} &
+%   \multicolumn{1}{c|}{11.88} &
+%   \multicolumn{1}{c|}{10.16} &
+%   \multicolumn{1}{c|}{11.35} &
+%   \multicolumn{1}{c|}{12.14} &
+%   \multicolumn{1}{c|}{130.41} &
+%   \multicolumn{1}{c|}{132.78} &
+%   148.21 \\ \bottomrule
+% \end{tabular}%
+% }
+% \end{table}

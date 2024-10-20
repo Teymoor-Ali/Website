@@ -1,0 +1,44 @@
+\begin{tikzpicture}
+  \begin{axis}[                    
+  ybar,    
+  ymin=0,
+  scaled y ticks=false,  
+  width=\columnwidth,  
+  legend image code/.code={ \draw[#1, draw=none] (0cm,-0.1cm) rectangle (0.5cm,0.3cm);},
+  legend style={
+    at={(0.77,0.99)},
+    anchor=north,
+    legend columns=1,
+    draw=black,
+    fill=white,
+    thick
+  },
+  ylabel={Execution Time (ms)},
+  symbolic x coords={Total,Gaussian Pyramid,Extrema Detect,Orientation \& Magnitude,Descriptor Generation},
+  xtick=data,
+  nodes near coords,
+  scaled x ticks=false,
+  nodes near coords style={
+    font=\tiny,
+    anchor=west,
+    rotate=90,
+    inner xsep=1pt,
+    /pgf/number format/.cd,
+    fixed,
+    precision=5,
+    /tikz/every node/.append style={xshift=0.2cm}
+  },
+  enlarge x limits=0.19,
+  bar width=0.6cm,
+  x tick label style={
+    align=center,   % enable text wrapping
+    text width=1.5cm  % set the text width
+  }
+  ]
+  \addplot[pattern=north west lines,pattern color=black, fill=blue!20, postaction={pattern=north east lines}] coordinates {(Total, 896)(Gaussian Pyramid, 684)(Extrema Detect, 112)(Orientation \& Magnitude, 97)(Descriptor Generation, 21)};
+  \addplot[pattern=north east lines,pattern color=black,fill=green!40, postaction={pattern=dots}] coordinates {(Total,10)(Gaussian Pyramid, 3)(Extrema Detect, 2)(Orientation \& Magnitude, 4)(Descriptor Generation, 1)};
+  \addplot[pattern=dots,pattern color=black,fill=red!30, postaction={pattern=grid}] coordinates {(Total, 12) (Gaussian Pyramid, 6)(Extrema Detect, 3)(Orientation \& Magnitude, 2)(Descriptor Generation,1)};
+
+  \legend{CPU: 5900X,GPU: 3070,FPGA: ZCU106}
+  \end{axis}
+\end{tikzpicture}

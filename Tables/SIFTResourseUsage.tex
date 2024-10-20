@@ -1,0 +1,21 @@
+\begin{table}[H]
+\centering
+\setlength{\extrarowheight}{0pt}
+\addtolength{\extrarowheight}{\aboverulesep}
+\addtolength{\extrarowheight}{\belowrulesep}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\caption{SIFT: Resource Usage Summary on FPGA of all Optimisations \textit{Downsampling}, \textit{$3 \times 3  Kernel$} \& \textit{Integer Arithmetic} Configuration.}
+\label{tab:resourseusage}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|c|c|c|c|c} 
+\toprule
+\rowcolor[rgb]{0.753,0.753,0.753} Configuration & LUTs & Registers & BRAM & DSP & \begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}Power Usage\\ (Watts)\\ Dynamic/Static\end{tabular} \\ 
+\midrule
+(2,4) & 42.11\% & 14.32\% & 21.38\% & 5.36\% & 10.324/0.97 \\ 
+\midrule
+(4,5) & 43.94\% & 15.38\% & 23.30\% & 6.51\% & 17.343/0.99 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

@@ -1,0 +1,66 @@
+\chapter{Discussion, Conclusions and Future Work}
+\label{chap:concl}
+The aim of this thesis is to present domain-specific optimisation techniques for image processing algorithms on heterogeneous hardware. In section \ref{sec:Discussionc}, the research problems are identified and discussed. Furthermore, in section \ref{sec:con_con}, the contributions to addressing the problems are presented. Lastly, in section \ref{sec:con_ftr}, future research directions extending the work are suggested.
+
+\section{Discussion}\label{sec:Discussionc}
+The thesis focuses on achieving two main research aims, "Which is the best method of partitioning and implementing algorithms on heterogeneous hardware" and "Identifying domain-specific optimisations and understanding the performance and accuracy trade-offs".
+
+In the case of implementing algorithms on heterogeneous platforms, the primary challenge is navigating the route to hardware. Designers often face a complex terrain of diverse hardware architectures, each with unique constraints and optimisation opportunities. This problem can lead to a time consuming and error-prone process of manually configuring and optimising algorithms for specific accelerators. Moreover, the need for standardised tools and interfaces across platforms further exacerbates the difficulty of seamless integration. Designers must grapple with the intricacies of synchronisation and resource allocation, which can be particularly daunting in complex, real-time image processing applications. These challenges underscore the need for a more streamlined and systematic approach to ensure efficient deployment of algorithms on heterogeneous platforms. 
+
+The other challenge for heterogeneous systems is efficiently managing data transfers between various processing units. Data movement between processors introduces latency and consumes substantial computational resources and memory bandwidth. In image processing, operations usually form a pipeline often subject to data dependencies, making it difficult to optimise the scheduling of tasks. Therefore, inefficient data transfers can lead to a significant performance bottleneck. 
+
+Optimisation is an essential step towards extracting the best performance out of systems. Traditional optimisations are not domain-aware and, therefore, cannot exploit the unique properties of specific problem domains to improve performance. Additionally, understanding the trade-offs between domain-specific optimisations and energy consumption or accuracy has not been fully considered. 
+
+Finally, implementing deep-learning algorithms such as CNNs or feature extraction algorithms on heterogeneous architectures necessitates the development of fine-grained partitioning strategies. Applying these strategies requires a thorough understanding of hardware architectures and profiling. In addition, developed metrics should be used to effectively evaluate the performance of heterogeneous implementations based on the type of algorithm deployed. Addressing these challenges is critical to unlocking the full potential of heterogeneous architectures.
+
+\section{Conclusions}\label{sec:con_con}
+To achieve the first objective of efficient deployment of algorithms on heterogeneous platforms, the characteristics of image processing algorithms were decomposed into fundamental operations. A benchmarking framework is presented in Chapter \ref{Harbour} to understand the features of algorithms found in the image-signal pipeline and to determine their suitability for specific accelerators in a heterogeneous environment. This modular framework, termed the Heterogeneous Architecture Benchmarking Framework on Unified Resources (HArBoUR), provides an in-depth analysis and set of metrics for imaging algorithms, which in turn enables the identification of the most efficient processing unit. To support the proposed framework, low and high complexity image processing pipelines are evaluated on each architecture using various tools and libraries. This gives a comprehensive insight into their design choices and optimisations. Different evaluation metrics are proposed such as throughput, energy per operation and clock cycles per operation.
+
+The following chapter \ref{chap:DSO}, explores domain-specific optimisation techniques within image processing. Several optimisations were proposed and validated on CNNs, feature extraction and filter algorithms. The results for CNN and filter algorithms had significantly reduced computation times on all processing architectures. In the case of the optimised SIFT algorithm implementation, it had outperformed the state-of-the-art on FPGAs. Additionally, it achieved runtime at par with GPU performances while consuming less power. However, these optimisations come at the expense of reduced accuracy, highlighting the need for thoughtful consideration when aiming to enhance performance through domain-specific optimisations.
+
+In the concluding Chapter \ref{sec:HCNN}, the development of two low and high-power heterogeneous systems using commercial off-the-shelf hardware is discussed. Moreover, two convolutional networks and a feature extraction algorithm are profiled and analysed to identify performance hotspots and assess their hardware compatibility. The algorithms are then partitioned onto the most efficient hardware using a fine-granular strategy, involving the separation of CNNs layer by layer and operations within the feature extraction algorithm. The implemented heterogeneous algorithms are evaluated against their discrete hardware counterparts, resulting in notable speedups in performance and reduced energy consumption.
+
+
+\section{Limitations \& Future work}\label{sec:con_ftr}
+In this section, the limitations and potential future directions of this research are discussed below:
+
+\subsection{Heterogeneous Benchmark Framework}
+The heterogeneous benchmarking framework proposed in Section \ref{Harbour} can be extended by including additional performance metrics that consider communication latency and scheduling of algorithms to determine the true performance. Further developing a tool-chain to support designers by highlighting key areas of code that can be accelerated by a particular processor and automatically partitioning algorithms without requiring additional designer input. This automation not only saves time but also ensures that the resulting code is fine-tuned on the target hardware. 
+% Finally, develop a new set of benchmarking algorithms specifically designed for heterogeneous computing systems, where these algorithms communicate data and utilise all accelerators. This is essential for accurately assessing the real-world performance and capabilities of heterogeneous platforms.
+
+
+\subsection{Domain-Specific Optimisations}
+The methods described in Section \ref{sec:Domain-Specific Optimisations} mainly centre on applying optimisations uniformly across the entire algorithm, resulting in the same optimisation being applied to every operation stage within the algorithms. This coarse-grained approach may potentially impact accuracy while having no significant impact on the overall runtime. Therefore, adopting a fine-grained approach by applying optimisation strategies to specific parts of an algorithm. An example of a granular approach involves applying optimisations to individual layers of a CNN or each stage of the SIFT algorithm, where each operation is fine-tuned independently. Additionally, the development of a domain-specific compiler capable of dynamically adapting and optimising algorithms based on runtime conditions, accuracy requirements, energy considerations, and data patterns can further enhance the efficiency and effectiveness of domain-specific optimisations on a heterogeneous platform.
+
+\subsection{Heterogeneous Implementations}
+In section \ref{sec:HCNN}, future directions of this chapter involve improving the hardware, scheduler and measurement accuracy. Initially, The heterogeneous scheduler on the high performance system transfers the output of one operation or layer onto the pinned memory of the GPU or buffer. The transfer is indirect since it has to go through the CPU, but can be shortened through direct memory transfer between accelerators. The scheduling algorithm can be improved by dynamically scheduling workloads for image processing if requirements change. 
+
+To address the challenges with data transfer latency can be separated into two categories, Hardware and Software listed below:
+\begin{itemize}
+    \item Hardware: Using a faster interface between accelerators than PCIe or integrating the cores onto a single compute chip to reduce the data transfer distance. 
+    \item Hardware: Utilising in-memory processing which integrates computation within memory modules. This design reduces data movement overhead and latency by processing data where it's stored rather than shuttling it between memory and processors. 
+    \item Software: Latency-aware compilers predict anticipated data usage by different processors and proactively optimise data placement to improve data locality.
+\end{itemize} 
+
+
+\subsection{Domain-Specific Language}
+All the previously mentioned future research directions can be unified within the framework of an image processing domain-specific language targeting image processing. The language would allow users to streamline the development of customised image pipelines by mapping algorithms together using a data-flow model. The result of abstracting away from hardware using a high-level signal flow diagram would simplify the route to hardware while removing the burden of partitioning and manual tuning from the designer.
+
+
+
+% \begin{description}
+%   \item[--] Expanding \textit{HArBoUR} framework to encompass additional algorithms outside the imaging domain. In addition, development of a tool to automatically identifying, annotating and partitioning algorithms onto a suitable accelerator without pre-existing user knowledge.
+  
+%   \item[--] Further improvement to \textit{HArBoUR}  framework to include metrics which take in account communication latency and scheduling of heterogeneous algorithms in order to determine the true performance on the heterogeneous platform.
+  
+%   \item[--] Further apply domain specific optimisations strategies within each layer of CNNs for a finer-grained performance boost as opposed to a coarse approach which reduces the ability to tune algorithms.
+  
+%  \item[--] Improving compilers which automatically apply domain-specific optimisations to image processing algorithms depending on various configurable parameters (\eg classification accuracy, energy, runtime) based on the end application requirements.
+
+%   \item[--] Improve heterogeneous scheduler to continuously pass data and process between accelerators instead of single processing method, where accelerators pass data in one direction only.
+ 
+%  \item[--] Development of a end to end domain-specific language which enables users to map algorithms together using a data-flow paradigm on heterogeneous architectures.
+
+
+% \end{description}   
+

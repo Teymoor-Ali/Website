@@ -1,0 +1,29 @@
+\begin{table}[H]
+\centering
+\setlength{\extrarowheight}{0pt}
+\addtolength{\extrarowheight}{\aboverulesep}
+\addtolength{\extrarowheight}{\belowrulesep}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\caption{SIFT: Profiling Summary on each Hardware Platform. \textit{Baseline} \& Optimised (Octave, Scale).}
+\label{tab:platoformsummary}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{c|c|c|c|c|c|c|c} 
+\toprule
+\rowcolor[rgb]{0.753,0.753,0.753} \textbf{Operation (ms)} & \begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{CPU }\\\textbf{ (4,5)}\end{tabular} & \begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{GPU }\\\textbf{ (4,5)}\end{tabular} & \begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Optimised}\\\textbf{ FPGA}\\\textbf{ (4,5)}\end{tabular} & \begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Baseline}\\\textbf{ FPGA}\\\textbf{ (4,5)}\end{tabular} & \begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Optimised}\\\textbf{ FPGA}\\\textbf{ (2,4)}\end{tabular} & \begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Baseline}\\\textbf{ FPGA}\\\textbf{ (2,4)}\end{tabular} & \begin{tabular}[c]{@{}>{\cellcolor[rgb]{0.753,0.753,0.753}}c@{}}\textbf{Optimised}\\\textbf{ FPGA}\\\textbf{ (2,4)}\\\textbf{(600Mhz)}\end{tabular} \\ 
+\midrule
+Gaussian Pyramid & 1118 & 3 & 36 & 45 & 8 & 19 & 4 \\ 
+\midrule
+Extrema Detection & 133 & 2 & 8 & 18 & 3 & 10 & 3 \\ 
+\midrule
+\begin{tabular}[c]{@{}c@{}}Orientation \textbackslash{}\& \\ Magnitude Assignment\end{tabular} & 128 & 1 & 4 & 16 & 4 & 9 & 2 \\ 
+\midrule
+Descriptor Generation & 50 & 1 & 10 & 14 & 5 & 5 & 1 \\ 
+\midrule
+\textbf{Total Execution Time (ms)} & 1429 & \textbf{\uline{7}} & 60 & 93 & 20 & 43 & 10 \\ 
+\cmidrule{1-3}\cline{4-4}\cmidrule{5-8} \midrule\midrule
+\textbf{Energy Consumption (nJ/Op)} & 1620 & 12.47 & 4.09 & 7.34 & \textit{\textbf{\uline{2.41}}} & 5.82 & 4.61 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

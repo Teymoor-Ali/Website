@@ -1,0 +1,114 @@
+\pgfplotsset{
+  my axis style/.style={
+      width=\linewidth,
+      ybar=2*\pgflinewidth,
+      ybar=5pt,
+      bar width=0.50cm,
+      enlarge y limits=0.0,
+      enlarge x limits=0.10,
+      xticklabels from table={\data}{material},
+      xtick={data},
+      table/x expr={\coordindex},
+      xtick align=inside,
+      xticklabel style={align=center},
+      %minor y tick num=1,
+      scaled y ticks=false,
+      yticklabel style={/pgf/number format/fixed},
+    },
+  Name/.style={
+      nodes near coords,
+      nodes near coords style={
+          coordinate,
+          name=#1\coordindex,
+          mark=*, % add red circle at node
+          mark options={mark size=2pt, fill=red}, % set size and fill color of mark
+        },
+    },
+}
+
+\pgfplotstableread{
+  material d1 d2 T1 T2 
+  Base\\FPGA 23.26 10.7 98.82 99.34 
+  3X3\\Krnl 33.33 11.23 97.34 98.98 
+  Dsp\\(1/2) 37.04 13.15 95.24 97.62 
+  Int         40 13.51 93.45 95.86 
+  3x3\\+Int 43.48 15.15 93.34 94.45 
+  Dsp\\+3X3 41.67 14.70 91.85 93.26
+  Dsp\\+Int 45.45 15.87 90.78 91.52 
+  Dsp\\+3X3\\+Int 50 16.67 89.45 90.18 
+}{\data}
+
+\begin{tikzpicture}
+  \begin{axis}[    
+  my axis style,       
+  legend image code/.code={\draw[#1, 
+  draw=none, fill=none] (0cm,-0.1cm) rectangle (0.3cm,0.25cm);
+        },    
+        ymin=0,
+        ymax=80,  
+        %ytick={0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6},
+        legend columns=-1,
+        nodes near coords,
+        nodes near coords style={font=\small, anchor=west,rotate=90,inner xsep=0.5pt},
+        axis x line*=bottom,      
+        axis y line*=left,  
+        ylabel=Frames Per Second (FPS),
+      cycle list={
+          {draw=black, fill=blue!20,},
+          {draw=black, fill=red!20,},
+        },
+      scaled y ticks=false,
+    ]
+    \addplot table [y=d1] {\data};
+    \addplot table [y=d2] {\data};
+    %\legend{{Baseline}, {Datatype}}
+  \end{axis}
+
+  \begin{axis}[       
+  my axis style,  
+  legend style={at={(0.5,-0.12)},
+          anchor=north,legend columns=-1},    
+          ymin=60,   
+          ymax=100,   
+          axis y line*=right,  
+          ylabel=Accuracy (\%),      
+          xticklabels=\empty,      
+          only marks,    
+          scaled y ticks=false, 
+          xtick = data,
+        nodes near coords,
+        nodes near coords style={font=\small, anchor=north,rotate=90,inner xsep=0.5pt},
+    ]
+\addplot [Name=a] table [y=T1, meta=T1] {\data};
+\addplot [Name=b] table [y=T2, meta=T2] {\data};
+\legend{{\color{blue!50}\rule{5mm}{2mm} \textcolor{black}{Octave/Scale: 2-4}}, {\color{red!50}\rule{5mm}{2mm} \textcolor{black}{Octave/Scale: 4-5}}}
+\end{axis}
+
+  \foreach \i in {0,1,2,3,4,5,6,7} {
+      % \fill [red!90] (d\i) circle (2pt);
+      \fill [blue!90] (a\i) circle (2pt);
+      % \draw [very thick,red!90] (d\i) -- (e\i) -- (f\i);
+      % \draw [very thick,blue!90] (a\i) -- (b\i) -- (c\i);
+      % \fill [red!90] (e\i) circle (2pt);
+      % \fill [red!90] (f\i) circle (2pt);
+      \fill [red!90] (b\i) circle (2pt);
+      % \fill [blue!90] (c\i) circle (2pt);
+    }
+
+\foreach \i in {0,1,2,3,4,5,6,7} {
+  \ifnum\i=0
+    \fill [red!90] (b\i) circle (2pt) node[below] {\pgfplotstablegetelem{\i}{[index]4}\of{\data}\pgfplotsretval};
+    \fill [blue!90] (a\i) circle (2pt) node[below, rotate=-45] {\pgfplotstablegetelem{\i}{[index]3}\of{\data}\pgfplotsretval};
+  \else
+    \ifnum\i=1
+      \fill [red!90] (b\i) circle (2pt) node[below] {\pgfplotstablegetelem{\i}{[index]4}\of{\data}\pgfplotsretval};
+    \else
+      \fill [red!90] (b\i) circle (2pt) node[above] {\pgfplotstablegetelem{\i}{[index]4}\of{\data}\pgfplotsretval};
+    \fi
+    \fill [blue!90] (a\i) circle (2pt) node[below] {\pgfplotstablegetelem{\i}{[index]3}\of{\data}\pgfplotsretval};
+  \fi
+}
+
+
+
+\end{tikzpicture}
