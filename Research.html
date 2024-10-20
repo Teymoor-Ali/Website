@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/components.css" />
     <link rel="stylesheet" href="css/layout.css" />
-
+    
     <style>
         /* Ensure the body and html take up the full height of the viewport */
         html, body {
@@ -69,61 +69,90 @@
         }
 
         /* Custom styling for the cards */
-        .card {
-            background-color: #343a40;
-            color: #fff;
-            border: none;
-            height: 100%; /* Ensures all cards take up the same height */
-            display: flex;
-            flex-direction: column;
-        }
+/* Custom styling for the cards */
+.card {
+    background-color: #343a40;
+    color: #fff;
+    border: none;
+    height: 100%; /* Ensures all cards take up the same height */
+    display: flex;
+    max-width: 100%; /* Ensure cards don't overflow their container */
+    width: 100%;
+    flex-direction: column;
+    padding: 20px; /* Increase padding inside the card */
+}
 
-        .card-img-top {
-            height: 200px;
-            object-fit: cover;
-        }
+.card-img-top {
+    height: 300px; /* Increase the image height to make it larger */
+    object-fit: cover;
+}
 
-        .card-body {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Spaces out the text and button */
-        }
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Spaces out the text and button */
+}
 
-        .card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
+.card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; /* Make the title larger */
+    margin-bottom: 20px;
+}
 
-        .btn {
-            background-color: #0d6efd;
-            border-color: #0d6efd;
-            margin-top: 10px;
-        }
+.btn {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #fff; /* Ensures button text is white in dark mode */
+    font-size: 1.2rem; /* Increase button text size */
+    margin-top: 15px;
+}
 
-        .btn:hover {
-            background-color: #0b5ed7;
-            border-color: #0a58ca;
-        }
+.btn:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
 
-        /* Carousel */
-        .carousel-item {
-            display: flex;
-        }
+/* Grid for cards */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Increase minimum card width to 400px */
+    gap: 30px; /* Increase space between cards */
+    justify-items: center; /* Centers the cards horizontally */
+    max-width: 1600px; /* Increase the width limit of the grid */
+    margin: 0 auto; /* Center the grid container */
+    padding: 40px; /* Increase padding around the grid */
+}
 
-        .carousel-item .col-md-4 {
-            flex: 1 0 33.33%; /* Ensures each card takes up 1/3 of the row */
-            max-width: 33.33%; /* Sets the max-width to 1/3 */
-            padding: 0 15px; /* Adds space between the cards */
-        }
         
-        .carousel-inner {
-            margin: 0 -15px; /* Adjusts the container to compensate for the padding on the cards */
-        }
-
         .row {
             margin-bottom: 30px; /* Adds space between the rows of cards */
+        }
+
+        /* Night Mode Button Styling */
+        .theme-toggle-btn {
+            position: fixed;
+            bottom: 60px;
+            right: 20px;
+            background-color: #f8f9fa;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .theme-toggle-btn i {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .light-theme .theme-toggle-btn {
+            background-color: #212529;
+        }
+
+        .light-theme .theme-toggle-btn i {
+            color: #fff;
         }
     </style>
 </head>
@@ -186,65 +215,49 @@
 <div class="content-wrapper container mt-5">
   <h1 class="text-center mb-4 blog-post-title">Current Research</h1>
   
-  <!-- Carousel with Research Cards -->
-  <div id="researchCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <!-- First Carousel Item -->
-      <div class="carousel-item active">
-        <div class="row justify-content-center">
-          <div class="col-md-4 mb-4">
-            <div class="card">
-              <img src="images/IMG_20221018_144042.jpg" class="card-img-top" alt="Research 1">
-              <div class="card-body">
-                <h5 class="card-title">Heterogeneous Computing</h5>
-                <p class="card-text">This research focuses on combining CPU-GPU-FPGA into a single fabric for higher performance and lower energy consumption.</p>
-                <a href="Research-HC.html" class="btn btn-primary">Learn More</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="card">
-              <img src="images/SNN.jpg" class="card-img-top" alt="Research 2">
-              <div class="card-body">
-                <h5 class="card-title">Spiking Neural Networks</h5>
-                <p class="card-text">Exploring spiking neural networks for energy-efficient computing in vision systems.</p>
-                <a href="Research-SNN.html" class="btn btn-primary">Learn More</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="card" aria-hidden="true">
-              <div class="card-img-top" style="height: 200px; background-color: #989a9c;"></div>
-              <div class="card-body">
-                <h5 class="card-title placeholder-glow">
-                  <span class="placeholder col-6"></span>
-                </h5>
-                <p class="card-text placeholder-wave">
-                  <span class="placeholder col-7"></span>
-                  <span class="placeholder col-4"></span>
-                  <span class="placeholder col-4"></span>
-                  <span class="placeholder col-6"></span>
-                  <span class="placeholder col-8"></span>
-                </p>
-                <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
-              </div>
-            </div>
-          </div>
+  <!-- Grid with Research Cards -->
+  <div class="cards-container">
+      <div class="card">
+        <img src="images/IMG_20221018_144042.jpg" class="card-img-top" alt="Research 1">
+        <div class="card-body">
+          <h5 class="card-title">Heterogeneous Computing</h5>
+          <p class="card-text">This research focuses on combining CPU-GPU-FPGA into a single fabric for higher performance and lower energy consumption.</p>
+          <a href="Research-HC.html" class="btn btn-primary">Learn More</a>
         </div>
       </div>
-    </div>
 
-    <!-- Carousel Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#researchCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#researchCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+      <div class="card">
+        <img src="images/SNN.jpg" class="card-img-top" alt="Research 2">
+        <div class="card-body">
+          <h5 class="card-title">Spiking Neural Networks</h5>
+          <p class="card-text">Exploring spiking neural networks for energy-efficient computing in vision systems.</p>
+          <a href="Research-SNN.html" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img-top" style="height: 200px; background-color: #989a9c;"></div>
+        <div class="card-body">
+          <h5 class="card-title placeholder-glow">
+            <span class="placeholder col-6"></span>
+          </h5>
+          <p class="card-text placeholder-wave">
+            <span class="placeholder col-7"></span>
+            <span class="placeholder col-4"></span>
+            <span class="placeholder col-4"></span>
+            <span class="placeholder col-6"></span>
+            <span class="placeholder col-8"></span>
+          </p>
+          <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
+        </div>
+      </div>
   </div>
 </div>
+
+<!-- Day/Night Mode Toggle Button -->
+<button class="theme-toggle-btn" id="theme-toggle">
+  <i class="fas fa-sun"></i>
+</button>
 
 <!-- Footer -->
 <footer class="footer-container mt-5">
@@ -255,6 +268,9 @@
 
 <!-- Bootstrap JS and Popper.js -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Include the theme toggle script -->
+<script src="js/theme-toggle.js"></script>
 
 </body>
 </html>

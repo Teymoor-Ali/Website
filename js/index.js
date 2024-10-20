@@ -34,3 +34,4 @@ document.addEventListener('DOMContentLoaded', function () {
     console.error('Hamburger menu or navigation menu not found in the DOM.');
   }
 });
+
