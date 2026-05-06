@@ -1,278 +1,359 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Research Areas - Teymoor Ali</title>
-    <link rel="icon" type="image/x-icon" href="images/colours.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research — Teymoor Ali</title>
+  <link rel="icon" type="image/x-icon" href="images/colours.png">
 
-    <!-- Bootstrap CSS (Bootstrap 5.3) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
-    <!-- FontAwesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Font Import -->
-    <link rel="preconnect" href="https://rsms.me/">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/css_reset.css" />
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/components.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    
-    <style>
-        /* Ensure the body and html take up the full height of the viewport */
-        html, body {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-        }
+    :root {
+      --bg:        #f5f5f7;
+      --surface:   #ffffff;
+      --text:      #1d1d1f;
+      --muted:     #6e6e73;
+      --accent:    #0071e3;
+      --accent-h:  #0077ed;
+      --border:    rgba(0,0,0,0.08);
+      --radius:    18px;
+      --nav-h:     52px;
+    }
 
-        .content-wrapper {
-            flex: 1;
-            padding-bottom: 60px;
-        }
+    html { scroll-behavior: smooth; }
 
-        footer {
-            background-color: rgba(255, 255, 255, 0.1);
-            text-align: center;
-            width: 100%;
-            padding: 10px;
-        }
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .footer-container {
-            background-color: #212529;
-        }
+    main { flex: 1; }
 
-        .blog-post-title {
-            font-size: 2rem;
-            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-            color: #fff;
-        }
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: rgba(245,245,247,0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+    }
 
-        /* Dark theme styles */
-        body {
-            background-color: #212529;
-            color: #fff;
-        }
+    .nav-inner {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 22px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
 
-        a {
-            color: #0d6efd;
-        }
+    .nav-logo img { width: 22px; height: 22px; border-radius: 4px; }
 
-        a:hover {
-            color: #0a58ca;
-        }
+    .nav-links { display: flex; gap: 28px; list-style: none; flex: 1; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 13px;
+      color: var(--text);
+      opacity: 0.86;
+      transition: opacity .15s;
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a.active { opacity: 1; font-weight: 500; }
 
-        /* Custom styling for the cards */
-/* Custom styling for the cards */
-.card {
-    background-color: #343a40;
-    color: #fff;
-    border: none;
-    height: 100%; /* Ensures all cards take up the same height */
-    display: flex;
-    max-width: 100%; /* Ensure cards don't overflow their container */
-    width: 100%;
-    flex-direction: column;
-    padding: 20px; /* Increase padding inside the card */
-}
+    .nav-icons { display: flex; gap: 18px; list-style: none; margin-left: auto; }
+    .nav-icons a { color: var(--muted); font-size: 14px; text-decoration: none; transition: color .15s; }
+    .nav-icons a:hover { color: var(--text); }
 
-.card-img-top {
-    height: 300px; /* Increase the image height to make it larger */
-    object-fit: cover;
-}
+    /* ── PAGE HEADER ── */
+    .page-header {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 64px 22px 48px;
+    }
 
-.card-body {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Spaces out the text and button */
-}
+    .page-header .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
 
-.card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem; /* Make the title larger */
-    margin-bottom: 20px;
-}
+    .page-header h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--text);
+    }
 
-.btn {
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-    color: #fff; /* Ensures button text is white in dark mode */
-    font-size: 1.2rem; /* Increase button text size */
-    margin-top: 15px;
-}
+    .page-header p {
+      margin-top: 16px;
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
 
-.btn:hover {
-    background-color: #0b5ed7;
-    border-color: #0a58ca;
-}
+    /* ── RESEARCH CARDS ── */
+    .cards-section {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 22px 80px;
+    }
 
-/* Grid for cards */
-.cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Increase minimum card width to 400px */
-    gap: 30px; /* Increase space between cards */
-    justify-items: center; /* Centers the cards horizontally */
-    max-width: 1600px; /* Increase the width limit of the grid */
-    margin: 0 auto; /* Center the grid container */
-    padding: 40px; /* Increase padding around the grid */
-}
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
 
-        
-        .row {
-            margin-bottom: 30px; /* Adds space between the rows of cards */
-        }
+    .research-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
 
-        /* Night Mode Button Styling */
-        .theme-toggle-btn {
-            position: fixed;
-            bottom: 60px;
-            right: 20px;
-            background-color: #f8f9fa;
-            border: none;
-            border-radius: 50%;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            cursor: pointer;
-        }
+    .research-card:hover {
+      box-shadow: 0 20px 60px rgba(0,0,0,0.10);
+      transform: translateY(-4px);
+    }
 
-        .theme-toggle-btn i {
-            font-size: 20px;
-            color: #333;
-        }
+    .card-image {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+    }
 
-        .light-theme .theme-toggle-btn {
-            background-color: #212529;
-        }
+    .card-image-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #e8e8ed 0%, #d1d1d6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        .light-theme .theme-toggle-btn i {
-            color: #fff;
-        }
-    </style>
+    .card-image-placeholder i {
+      font-size: 32px;
+      color: #aeaeb2;
+    }
+
+    .card-body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .card-link i { font-size: 10px; transition: transform .2s; }
+    .research-card:hover .card-link i { transform: translateX(3px); }
+
+    /* Coming soon card */
+    .research-card.coming-soon {
+      opacity: 0.55;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .coming-soon-badge {
+      display: inline-block;
+      background: rgba(0,0,0,0.06);
+      border-radius: 980px;
+      padding: 3px 10px;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 16px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 22px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeUp 0.6s ease both; }
+    .fade-in-1 { animation-delay: 0.05s; }
+    .fade-in-2 { animation-delay: 0.15s; }
+    .fade-in-3 { animation-delay: 0.25s; }
+
+    @media (max-width: 600px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Dark Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <img src="images/colours.png" width="30" height="30" alt="Logo">
-
-    <!-- Navbar Toggler (Hamburger icon for mobile) -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Navbar links (collapsible in mobile) -->
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <!-- Left side: Links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Teymoor_CV.pdf">CV</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Blog.html">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">Research</a>
-        </li>
-      </ul>
-
-      <!-- Right side: Social Media Icons -->
-      <ul class="navbar-nav ms-auto">
-        <!-- GitHub Icon -->
-        <li class="nav-item">
-          <a class="nav-link" href="https://github.com/teymoor-ali" target="_blank"><i class="fab fa-github" style="color: white;"></i></a>
-        </li>
-        <!-- Google Scholar Icon -->
-        <li class="nav-item">
-          <a class="nav-link" href="https://scholar.google.com/citations?user=Pa7Mhl4AAAAJ&hl" target="_blank">
-            <i class="fas fa-graduation-cap" style="color: white;"></i>
-          </a>
-        </li>
-        <!-- LinkedIn Icon -->
-        <li class="nav-item">
-          <a class="nav-link" href="https://www.linkedin.com/in/teymoor-ali/" target="_blank"><i class="fab fa-linkedin" style="color: white;"></i></a>
-        </li>
-        <!-- Mail Icon -->
-        <li class="nav-item">
-          <a class="nav-link" href="mailto:Teymoor.A@Outlook.com"><i class="fas fa-envelope" style="color: white;"></i></a>
-        </li>
-      </ul>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <a href="index.html"><img src="images/colours.png" alt="Home"></a>
     </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Teymoor_CV.pdf" download>CV</a></li>
+      <li><a href="Blog.html">Blog</a></li>
+      <li><a href="Research.html" class="active">Research</a></li>
+    </ul>
+    <ul class="nav-icons">
+      <li><a href="https://github.com/teymoor-ali" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></li>
+      <li><a href="https://scholar.google.com/citations?user=Pa7Mhl4AAAAJ&hl" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a></li>
+      <li><a href="https://www.linkedin.com/in/teymoor-ali/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+      <li><a href="mailto:Teymoor.A@Outlook.com" title="Email"><i class="fas fa-envelope"></i></a></li>
+    </ul>
   </div>
 </nav>
 
-<!-- Main Content Wrapper -->
-<div class="content-wrapper container mt-5">
-  <h1 class="text-center mb-4 blog-post-title">Current Research</h1>
-  
-  <!-- Grid with Research Cards -->
-  <div class="cards-container">
-      <div class="card">
-        <img src="images/IMG_20221018_144042.jpg" class="card-img-top" alt="Research 1">
-        <div class="card-body">
-          <h5 class="card-title">Heterogeneous Computing</h5>
-          <p class="card-text">This research focuses on combining CPU-GPU-FPGA into a single fabric for higher performance and lower energy consumption.</p>
-          <a href="Research-HC.html" class="btn btn-primary">Learn More</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="images/SNN.jpg" class="card-img-top" alt="Research 2">
-        <div class="card-body">
-          <h5 class="card-title">Spiking Neural Networks</h5>
-          <p class="card-text">Exploring spiking neural networks for energy-efficient computing in vision systems.</p>
-          <a href="Research-SNN.html" class="btn btn-primary">Learn More</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-img-top" style="height: 200px; background-color: #989a9c;"></div>
-        <div class="card-body">
-          <h5 class="card-title placeholder-glow">
-            <span class="placeholder col-6"></span>
-          </h5>
-          <p class="card-text placeholder-wave">
-            <span class="placeholder col-7"></span>
-            <span class="placeholder col-4"></span>
-            <span class="placeholder col-4"></span>
-            <span class="placeholder col-6"></span>
-            <span class="placeholder col-8"></span>
-          </p>
-          <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
-        </div>
-      </div>
+<main>
+  <!-- PAGE HEADER -->
+  <div class="page-header fade-in fade-in-1">
+    <p class="section-label">Current Work</p>
+    <h1>Research Areas</h1>
+    <p>Exploring the intersection of intelligent vision systems, efficient hardware, and next-generation computing paradigms.</p>
   </div>
-</div>
 
-<!-- Day/Night Mode Toggle Button -->
-<button class="theme-toggle-btn" id="theme-toggle">
-  <i class="fas fa-sun"></i>
-</button>
+  <!-- CARDS -->
+  <div class="cards-section fade-in fade-in-2">
+    <div class="cards-grid">
 
+      <!-- Card 1 -->
+      <a href="Research-HC.html" class="research-card">
+        <img src="images/IMG_20221018_144042.jpg" class="card-image" alt="Heterogeneous Computing">
+        <div class="card-body">
+          <div class="card-tag">Hardware · Systems</div>
+          <h2 class="card-title">Heterogeneous Computing</h2>
+          <p class="card-desc">Combining CPU, GPU, and FPGA into a unified fabric for higher performance and lower energy consumption in vision pipelines.</p>
+          <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
 
+      <!-- Card 2 -->
+      <a href="Research-SNN.html" class="research-card">
+        <img src="images/SNN.jpg" class="card-image" alt="Spiking Neural Networks">
+        <div class="card-body">
+          <div class="card-tag">Neuromorphic · AI</div>
+          <h2 class="card-title">Spiking Neural Networks</h2>
+          <p class="card-desc">Exploring biologically-inspired neural models for energy-efficient, event-driven computation in real-time vision systems.</p>
+          <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
 
-<!-- Footer -->
-<footer class="footer-container mt-5">
-  <div class="text-center p-3">
-    © 2024 Teymoor Ali. All Rights Reserved
+      <!-- Card 3 — Coming Soon -->
+      <div class="research-card coming-soon">
+        <div class="card-image-placeholder">
+          <i class="fas fa-flask"></i>
+        </div>
+        <div class="card-body">
+          <div class="card-tag">Coming Soon</div>
+          <h2 class="card-title">New Research Area</h2>
+          <p class="card-desc">A new research direction currently in progress. Check back soon for updates.</p>
+          <span class="coming-soon-badge">In progress</span>
+        </div>
+      </div>
+
+    </div>
   </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 Teymoor Ali · University of Strathclyde ·
+  <a href="mailto:Teymoor.A@Outlook.com" style="color:inherit">Teymoor.A@Outlook.com</a>
 </footer>
 
-<!-- Bootstrap JS and Popper.js -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Scroll-triggered card reveals
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
 
-<!-- Include the theme toggle script -->
-<script src="js/theme-toggle.js"></script>
+  document.querySelectorAll('.research-card').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = `opacity 0.5s ease ${i * 0.1}s, transform 0.5s ease ${i * 0.1}s, box-shadow 0.3s ease, transform 0.3s ease`;
+    observer.observe(el);
+  });
+</script>
 
 </body>
 </html>

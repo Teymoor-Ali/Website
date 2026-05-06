@@ -1,167 +1,502 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Teymoor Ali</title>
-    <link rel="icon" type="image/x-icon" href="images/colours.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teymoor Ali — Research Associate</title>
+  <link rel="icon" type="image/x-icon" href="images/colours.png">
 
-    <!-- Bootstrap CSS (Bootstrap 5.3) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
-    <!-- FontAwesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Font Import -->
-    <link rel="preconnect" href="https://rsms.me/">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/css_reset.css" />
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/components.css" />
-    <link rel="stylesheet" href="css/layout.css" />
+    :root {
+      --bg:        #f5f5f7;
+      --surface:   #ffffff;
+      --text:      #1d1d1f;
+      --muted:     #6e6e73;
+      --accent:    #0071e3;
+      --accent-h:  #0077ed;
+      --border:    rgba(0,0,0,0.08);
+      --radius:    18px;
+      --nav-h:     52px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: rgba(245,245,247,0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 22px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { width: 22px; height: 22px; border-radius: 4px; }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      flex: 1;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text);
+      opacity: 0.86;
+      letter-spacing: 0.01em;
+      transition: opacity .15s;
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a.active { opacity: 1; font-weight: 500; }
+
+    .nav-icons {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+      margin-left: auto;
+    }
+    .nav-icons a {
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+      transition: color .15s;
+    }
+    .nav-icons a:hover { color: var(--text); }
+
+    /* Mobile nav toggle */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+      font-size: 18px;
+      margin-left: auto;
+      padding: 4px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 80px 22px 60px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-text p {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 14px;
+    }
+
+    .hero-text .tagline {
+      font-size: 14px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      margin-top: 16px;
+    }
+
+    .hero-text .tagline strong { color: var(--text); font-weight: 500; }
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary-apple {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 980px;
+      padding: 10px 22px;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-primary-apple:hover { background: var(--accent-h); }
+
+    .btn-secondary-apple {
+      background: rgba(0,0,0,0.06);
+      color: var(--text);
+      border: none;
+      border-radius: 980px;
+      padding: 10px 22px;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-secondary-apple:hover { background: rgba(0,0,0,0.1); }
+
+    .hero-photo {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .hero-photo img {
+      width: 100%;
+      max-width: 300px;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    /* ── EXPERTISE CHIPS ── */
+    .chips-row {
+      max-width: 980px;
+      margin: 0 auto 60px;
+      padding: 0 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 980px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 22px 80px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 36px;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── PUBLICATIONS ── */
+    .pub-list { list-style: none; }
+
+    .pub-year-group { margin-bottom: 40px; }
+
+    .pub-year {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .pub-year::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .pub-item {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 10px;
+      border: 1px solid var(--border);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .pub-item:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+      transform: translateY(-1px);
+    }
+
+    .pub-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+
+    .pub-meta {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .pub-meta a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .pub-meta a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 22px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ── FADE-IN ANIMATION ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeUp 0.6s ease both; }
+    .fade-in-1 { animation-delay: 0.05s; }
+    .fade-in-2 { animation-delay: 0.15s; }
+    .fade-in-3 { animation-delay: 0.25s; }
+    .fade-in-4 { animation-delay: 0.35s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 48px 22px 36px;
+        gap: 32px;
+      }
+      .hero-photo { justify-content: center; order: -1; }
+      .hero-photo img { max-width: 200px; aspect-ratio: 1; border-radius: 50%; }
+      .nav-links, .nav-icons { display: none; }
+      .nav-toggle { display: block; }
+      nav.open .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: var(--nav-h);
+        left: 0; right: 0;
+        background: rgba(245,245,247,0.97);
+        backdrop-filter: blur(20px);
+        padding: 16px 22px;
+        border-bottom: 1px solid var(--border);
+        gap: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <img src="images/colours.png" width="30" height="30" alt="">
-    <!-- Navbar Toggler (Hamburger icon for mobile) -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Navbar links and icons -->
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <!-- Left side: Links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Teymoor_CV.pdf" download="Teymoor_CV">CV</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="Blog.html">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Research.html">Research</a>
-        </li>
-      </ul>
-
-      <!-- Right side: Social Media Icons -->
-      <ul class="navbar-nav ms-auto">
-        <!-- GitHub Icon -->
-        <li class="nav-item">
-          <a class="nav-link" href="https://github.com/teymoor-ali" target="_blank">
-            <i class="fab fa-github" style="color: white;"></i>
-          </a>
-        </li>
-        <!-- Google Scholar Icon -->
-        <li class="nav-item">
-          <a class="nav-link" href="https://scholar.google.com/citations?user=Pa7Mhl4AAAAJ&hl" target="_blank">
-            <i class="fas fa-graduation-cap" style="color: white;"></i>
-          </a>
-        </li>
-        <!-- LinkedIn Icon -->
-        <li class="nav-item">
-          <a class="nav-link" href="https://www.linkedin.com/in/teymoor-ali/" target="_blank">
-            <i class="fab fa-linkedin" style="color: white;"></i>
-          </a>
-        </li>
-        <!-- Mail Icon -->
-        <li class="nav-item">
-          <a class="nav-link" href="mailto:Teymoor.A@Outlook.com">
-            <i class="fas fa-envelope" style="color: white;"></i>
-          </a>
-        </li>
-      </ul>
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <img src="images/colours.png" alt="Teymoor Ali">
     </div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="Teymoor_CV.pdf" download>CV</a></li>
+      <li><a href="Blog.html">Blog</a></li>
+      <li><a href="Research.html">Research</a></li>
+    </ul>
+    <ul class="nav-icons">
+      <li><a href="https://github.com/teymoor-ali" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></li>
+      <li><a href="https://scholar.google.com/citations?user=Pa7Mhl4AAAAJ&hl" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a></li>
+      <li><a href="https://www.linkedin.com/in/teymoor-ali/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+      <li><a href="mailto:Teymoor.A@Outlook.com" title="Email"><i class="fas fa-envelope"></i></a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
   </div>
 </nav>
 
-<!-- Main Content Wrapper -->
-<div class="content-wrapper container">
-  <div class="row">
-    <!-- Column 1: About Me Section -->
-    <div class="col-md-4">
-      <div class="about-image" style="padding-right: 20px;">
-          <img src="images/Selfie.jpg" alt="Your Profile Picture" style="width: 100%; max-width: 400px; height: auto; border-radius: 10px;">
-      </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text fade-in fade-in-1">
+    <h1>Research at the edge of<br><em>vision & silicon.</em></h1>
+    <p>
+      I am a Research Associate at the University of Strathclyde's Department of Electronic & Electrical Engineering. 
+      My work sits at the intersection of computer vision, edge AI, and heterogeneous hardware — building systems that see, think, and act efficiently.
+    </p>
+    <p>
+      PhD in Computing Science from the University of Stirling · MEng Software Engineering from Heriot-Watt University.
+    </p>
+    <div class="tagline">
+      <strong>Focus areas:</strong> image processing · FPGA acceleration · neuromorphic computing · hyperspectral imaging
     </div>
-
-    <!-- Column 2: Jumbotron with Bio -->
-    <div class="col-md-8 d-flex align-items-center">
-      <div class="jumbotron">
-        <p class="lead">I am a Research Associate in the Department of Electronic & Electrical Engineering at the University of Strathclyde, with a PhD in Computing Science from the University of Stirling and a Master of Engineering in Software Engineering from Heriot-Watt University. My research focuses on image processing, computer vision, and edge AI, particularly for industrial and scientific applications. I have experience developing domain-specific optimisations of image processing algorithms on novel heterogeneous architectures.</p>
-        <hr class="my-4">
-        <p>My expertise spans across computer vision, neuromorphic computing, hyperspectral imaging, and hardware performance optimization.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Accordion for Publications -->
-<div class="row mt-4">
-  <div class="col-md-12">
-    <div class="accordion" id="accordionPanelsStayOpenExample">
-      <div class="accordion-item" id="publications-accordion">
-        <h2 class="accordion-header">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">
-            Publications
-          </button>
-        </h2>
-        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show">
-          <div class="accordion-body">
-            <!-- Year 2025 -->
-            <span class="badge rounded-pill text-bg-success mb-2">2025</span>
-            <ul class="publication-list">
-              <li><strong>Ali, T.</strong>, Bhowmik, D., Nicol, R., <em>Energy Aware CNN Deployment on Heterogeneous Architectures.</em> In <em>FPGA Technology for Embedded Systems Applications</em>, 2025.</li>
-            </ul>
-
-            <!-- Year 2024 -->
-            <span class="badge rounded-pill text-bg-success mb-2 mt-4">2024</span>
-            <ul class="publication-list">
-              <li><strong>Ali, T.</strong>, Rainey, J., Lau, S., Gheorghiu, E., Maier, P., Appiah, K., & Bhowmik, D. <em>An FPGA-based neuromorphic vision system accelerator.</em> SPIE Sensors + Imaging.</li>
-              <li><strong>Ali, T.</strong>, Paul, G., Nicol, R., & Bhowmik, D. <em>Scheduling algorithms on heterogeneous architecture for efficient vision systems.</em> Proc. SPIE 13137, Applications of Digital Image Processing XLVII, 131370F. <a href="https://doi.org/10.1117/12.3031278" target="_blank">doi:10.1117/12.3031278</a></li>
-              <li>Kumar, H., <strong>Ali, T.</strong>, Holder, C., McGough, S., & Bhowmik, D. <em>Remote Sensing Classification using Quantum Image Processing.</em> SPIE: Photonics for Quantum.</li>
-            </ul>
-
-            <!-- Year 2023 -->
-            <span class="badge rounded-pill text-bg-success mb-2 mt-4">2023</span>
-            <ul class="publication-list">
-              <li><strong>Ali, T.</strong>, Bhowmik, D., & Nicol, R. <em>Domain-Specific Optimisations for Image Processing on FPGAs.</em> J Signal Process Syst 95, 1167–1179. <a href="https://doi.org/10.1007/s11265-023-01888-2" target="_blank">doi:10.1007/s11265-023-01888-2</a></li>
-              <li>Bane, M., Brown, O., <strong>Ali, T.</strong>, Bhowmik, D., Quinn, J., & Stansby, D. <em>ENERGETIC: Final Report v1.1.</em> <a href="https://doi.org/10.23634/MMU.00631226" target="_blank">doi:10.23634/MMU.00631226</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <div class="hero-cta">
+      <a href="Research.html" class="btn-primary-apple">Explore Research <i class="fas fa-arrow-right" style="font-size:11px"></i></a>
+      <a href="Teymoor_CV.pdf" download class="btn-secondary-apple"><i class="fas fa-download" style="font-size:11px"></i> Download CV</a>
     </div>
   </div>
+  <div class="hero-photo fade-in fade-in-2">
+    <img src="images/Selfie.jpg" alt="Teymoor Ali">
+  </div>
+</section>
+
+<!-- EXPERTISE CHIPS -->
+<div class="chips-row fade-in fade-in-3">
+  <span class="chip">Computer Vision</span>
+  <span class="chip">Edge AI</span>
+  <span class="chip">FPGA Design</span>
+  <span class="chip">Neuromorphic Computing</span>
+  <span class="chip">Hyperspectral Imaging</span>
+  <span class="chip">CNN Deployment</span>
+  <span class="chip">Heterogeneous Architectures</span>
+  <span class="chip">Spiking Neural Networks</span>
 </div>
 
+<!-- PUBLICATIONS -->
+<section class="section fade-in fade-in-4">
+  <p class="section-label">Selected Works</p>
+  <h2 class="section-title">Publications</h2>
 
-  <!-- Day/Night Mode Toggle Button -->
-  <button class="theme-toggle-btn" id="theme-toggle">
-    <i class="fas fa-sun"></i>
-  </button>
-
-</div>
-
-<!-- Footer -->
-<footer class="footer-container">
-  <div class="text-center p-3">
-    © 2024 Teymoor Ali. All Rights Reserved
+  <div class="pub-year-group">
+    <div class="pub-year">2025</div>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <div class="pub-title">Energy Aware Computer Vision Algorithm Deployment on Heterogeneous Architectures</div>
+        <div class="pub-meta"><strong>Ali, T.</strong>, Bhowmik, D., &amp; Nicol, R. · <em>Discover Electronics</em>, 2(1), Article 42 · <a href="https://doi.org/10.1007/s44291-025-00078-7" target="_blank">doi:10.1007/s44291-025-00078-7</a></div>
+      </li>
+    </ul>
   </div>
+
+  <div class="pub-year-group">
+    <div class="pub-year">2024</div>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <div class="pub-title">An FPGA-based Neuromorphic Vision System Accelerator</div>
+        <div class="pub-meta"><strong>Ali, T.</strong>, Rainey, J., Lau, S.Y., Gheorghiu, E., Maier, P., Appiah, K., &amp; Bhowmik, D. · <em>Proc. SPIE 13206, Artificial Intelligence for Security and Defence Applications II</em>, 132060F · <a href="https://doi.org/10.1117/12.3034095" target="_blank">doi:10.1117/12.3034095</a></div>
+      </li>
+      <li class="pub-item">
+        <div class="pub-title">Scheduling Algorithms on Heterogeneous Architecture for Efficient Vision Systems</div>
+        <div class="pub-meta"><strong>Ali, T.</strong>, Paul, G., Nicol, R., &amp; Bhowmik, D. · <em>Proc. SPIE 13137, Applications of Digital Image Processing XLVII</em>, 131370F · <a href="https://doi.org/10.1117/12.3031278" target="_blank">doi:10.1117/12.3031278</a></div>
+      </li>
+      <li class="pub-item">
+        <div class="pub-title">Remote Sensing Classification using Quantum Image Processing</div>
+        <div class="pub-meta">Kumar, H., <strong>Ali, T.</strong>, Holder, C., McGough, S., &amp; Bhowmik, D. · <em>SPIE: Photonics for Quantum</em></div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="pub-year-group">
+    <div class="pub-year">2023</div>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <div class="pub-title">Domain-Specific Optimisations for Image Processing on FPGAs</div>
+        <div class="pub-meta"><strong>Ali, T.</strong>, Bhowmik, D., &amp; Nicol, R. · <em>Journal of Signal Processing Systems</em> 95, 1167–1179 · <a href="https://doi.org/10.1007/s11265-023-01888-2" target="_blank">doi:10.1007/s11265-023-01888-2</a></div>
+      </li>
+      <li class="pub-item">
+        <div class="pub-title">ENERGETIC: Final Report v1.1</div>
+        <div class="pub-meta">Bane, M., Brown, O., <strong>Ali, T.</strong>, Bhowmik, D., Quinn, J., &amp; Stansby, D. · <a href="https://doi.org/10.23634/MMU.00631226" target="_blank">doi:10.23634/MMU.00631226</a></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 Teymoor Ali · University of Strathclyde ·
+  <a href="mailto:Teymoor.A@Outlook.com" style="color:inherit">Teymoor.A@Outlook.com</a>
 </footer>
 
-<!-- Bootstrap JS and Popper.js (Bootstrap 5.3) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Mobile nav toggle
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('main-nav');
+  toggle.addEventListener('click', () => nav.classList.toggle('open'));
 
-<!-- Theme Toggle Script -->
-<script src="js/theme-toggle.js"></script>
+  // Scroll-triggered fade-in for publication items
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.pub-item').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(12px)';
+    el.style.transition = `opacity 0.4s ease ${i * 0.04}s, transform 0.4s ease ${i * 0.04}s`;
+    observer.observe(el);
+  });
+</script>
 
 </body>
 </html>
